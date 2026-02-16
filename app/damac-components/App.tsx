@@ -13,9 +13,7 @@ import FAQ from './FAQSection';
 import DeveloperProfile from './DeveloperProfile';
 import Contact from './Contact';
 import Footer from './Footer';
-import { FormModalProvider } from "../components/FormModalContext";
-import FormModal from "../components/FormModal";
-import EnquiryModalWrapper from "../components/EnquiryModalWrapper";
+import DamacFixedMobileButton from './DamacFixedMobileButton';
 import './page.css'
 
 const DamacIsland: React.FC = () => {
@@ -30,7 +28,6 @@ const DamacIsland: React.FC = () => {
   };
 
   return (
-    <FormModalProvider>
     <div className="relative min-h-screen bg-[#FDFDFB] text-[#1A1A1A] overflow-x-hidden">
       <Navbar onNavClick={scrollToSection} activeSection={activeSection} />
       
@@ -79,13 +76,9 @@ const DamacIsland: React.FC = () => {
           <Contact />
         </section>
       </main>
-
+      <DamacFixedMobileButton />
       <Footer onNavClick={scrollToSection} />
     </div>
-    
-    <FormModal />
-    <EnquiryModalWrapper />
-    </FormModalProvider>
   );
 };
 

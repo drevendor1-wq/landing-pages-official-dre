@@ -69,17 +69,17 @@ const openEnquiryModal = (text: string = "Request Brochure") => {
         {/* Brochure Button */}
         <button 
           onClick={() => openEnquiryModal("Request Brochure")} 
-          className="relative px-12 py-4 bg-white text-black text-sm font-bold tracking-[0.2em] rounded-none shadow-[20px_20px_60px_rgba(0,0,0,0.3)] hover:shadow-none hover:translate-x-2 hover:-translate-y-2 transition-all duration-300"
+          className="relative px-12 py-4 bg-white text-black text-sm font-bold tracking-[0.1em] rounded-none shadow-[20px_20px_60px_rgba(0,0,0,0.3)] hover:shadow-none hover:translate-x-2 hover:-translate-y-2 transition-all duration-300"
         >
           REQUEST BROCHURE
           <div className="absolute -bottom-2 -left-2 w-full h-full border border-white/20 -z-10"></div>
         </button>
 
          <button 
-          onClick={() => openEnquiryModal("Instant Callback")}  // Ensure this function is defined in your props/component
-          className="relative px-12 py-4 bg-white text-black text-sm font-bold tracking-[0.2em] rounded-none shadow-[20px_20px_60px_rgba(0,0,0,0.3)] hover:shadow-none hover:translate-x-2 hover:-translate-y-2 transition-all duration-300"
+          onClick={() => openEnquiryModal("CALL BACK FROM DAMAC EXPERT")}  // Ensure this function is defined in your props/component
+          className="relative text-sm md: 2xl px-12 py-4 bg-white text-black font-bold tracking-[0.1em] rounded-none shadow-[20px_20px_60px_rgba(0,0,0,0.3)] hover:shadow-none hover:translate-x-2 hover:-translate-y-2 transition-all duration-300"
         >
-          INSTANT CALL BACK
+          CALL BACK FROM DAMAC EXPERT
           <div className="absolute -bottom-2 -left-2 w-full h-full border border-white/20 -z-10"></div>
         </button>
 

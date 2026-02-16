@@ -1,0 +1,79 @@
+/* --- Thank You Page Styles --- */
+
+.site_header {
+  padding: 20px 0;
+  border-bottom: 1px solid #eef2f6;
+  background-color: #ffffff;
+}
+
+.thank_you_section {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.thank_you_content {
+  max-width: 600px;
+  background: #ffffff;
+  padding: 50px 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 51, 102, 0.08); /* Soft blue-tinted shadow */
+}
+
+.thank_you_icon {
+  margin-bottom: 25px;
+  color: #0056b3; /* Primary Blue */
+  animation: scaleUp 0.5s ease-out;
+}
+
+.thank_you_content h1 {
+  font-size: 2.5rem;
+  color: #002b5c; /* Deep Navy Blue */
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.thank_you_content p {
+  font-size: 1.1rem;
+  color: #556b82; /* Muted Blue-Grey */
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.btn_primary {
+  display: inline-block;
+  background-color: #0056b3;
+  color: #ffffff;
+  padding: 14px 35px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 2px solid #0056b3;
+}
+
+.btn_primary:hover {
+  background-color: transparent;
+  color: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* Simple entry animation */
+@keyframes scaleUp {
+  0% { transform: scale(0); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .thank_you_content {
+    padding: 30px 20px;
+  }
+  .thank_you_content h1 {
+    font-size: 2rem;
+  }
+}

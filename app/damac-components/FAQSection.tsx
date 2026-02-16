@@ -17,7 +17,7 @@ const FAQ: React.FC = () => {
     <div className="max-w-4xl mx-auto">
       <div className="text-center mb-16">
         <span className="text-zinc-500 uppercase tracking-widest text-sm font-medium mb-4 block">Support</span>
-        <h2 className="text-4xl font-heading font-light text-zinc-900">Frequently Asked Questions</h2>
+        <h2 className="text-2xl md:text-4xl font-heading font-light text-zinc-900">Frequently Asked Questions</h2>
       </div>
 
       <div className="space-y-4">
