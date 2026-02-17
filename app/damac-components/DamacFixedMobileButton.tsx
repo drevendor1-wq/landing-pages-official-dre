@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 const DamacFixedMobileButton = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-   const [isChecked, setIsChecked] = useState(true);
+   const [isChecked, setIsChecked] = useState(false);
   const router = useRouter();
 
   const togglePopup = () => {

@@ -5,7 +5,7 @@ const LocationAdvantage: React.FC = () => {
     { place: "Dubai Sports City", dist: "15 Mins", icon: "🏟️" },
     { place: "Damac Hills", dist: "15 Mins", icon: "🏢" },
     { place: "Expo 2020", dist: "20 Mins", icon: "🎡" },
-    { place: "A Maktoum International Airport", dist: "23 Mins", icon: "✈️" },
+    { place: "Al Maktoum International Airport", dist: "23 Mins", icon: "✈️" },
     { place: "Burj Khalifa", dist: "25 Mins", icon: "🏢" },
     { place: "Dubai Investment Park", dist: "25 Mins", icon: "🏢" },
     { place: "Burj Al Arab", dist: "35 Mins", icon: "🏢" },
