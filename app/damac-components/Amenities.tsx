@@ -14,7 +14,7 @@ const Amenities: React.FC = () => {
     <div className="max-w-7xl mx-auto">
       <div className="text-center mb-20">
         <span className="text-zinc-500 uppercase tracking-widest text-sm font-medium mb-4 block">Lifestyle</span>
-        <h2 className="text-4xl md:text-5xl font-heading font-light text-zinc-900">
+        <h2 className="text-3xl md:text-5xl font-heading font-light text-zinc-900">
           World-Class Amenities
         </h2>
       </div>

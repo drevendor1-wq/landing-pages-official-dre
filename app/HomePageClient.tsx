@@ -244,7 +244,7 @@ function HomePageContent() {
                   >
                     Brochure
                   </button>
-                  <Link href="/damac-islands" className="property-action-btn">
+                  <Link href="/damac-islands2" className="property-action-btn">
                     View Details
                   </Link>
                 </div>

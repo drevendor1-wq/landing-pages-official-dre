@@ -1,31 +1,36 @@
+"use client";
+
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useRouter } from 'next/navigation';
 
 const DamacFixedMobileButton = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+   const [isChecked, setIsChecked] = useState(true);
+  const router = useRouter();
 
   const togglePopup = () => {
     setIsOpen(!isOpen);
-    // Reset submission state when closing/reopening
-    if (isOpen) setIsSubmitted(false);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
     
-    // Simulating an API call
+    // Simulating an API call (e.g., sending to Formspree, HubSpot, or a custom route)
     setTimeout(() => {
       setIsLoading(false);
-      setIsSubmitted(true);
+      setIsOpen(false);
+      
+      // Redirect to the thank-you page in your /app directory
+      router.push('/damac-thank-you'); 
     }, 1200);
   };
 
   return (
     <>
-      {/* Fixed Mobile Button - Blue & Black Gradient */}
+      {/* Fixed Mobile Button - Visible only on small screens */}
       <div className="fixed bottom-0 left-0 right-0 p-4 z-50 md:hidden bg-black/90 backdrop-blur-md border-t border-blue-900/30">
         <button
           onClick={togglePopup}
@@ -47,7 +52,7 @@ const DamacFixedMobileButton = () => {
               className="fixed inset-0 bg-black/80 z-[60] backdrop-blur-sm"
             />
 
-            {/* Modal Content */}
+            {/* Slide-up Modal */}
             <motion.div
               initial={{ y: "100%" }}
               animate={{ y: 0 }}
@@ -56,51 +61,78 @@ const DamacFixedMobileButton = () => {
               className="fixed bottom-0 left-0 right-0 bg-[#0a0a0a] text-white z-[70] rounded-t-3xl p-8 border-t border-blue-900/50 shadow-[0_-10px_40px_rgba(0,0,0,0.8)]"
             >
               {/* Close Button */}
-              <button onClick={togglePopup} className="absolute top-6 right-6 text-blue-400 hover:text-white">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
+              <button 
+                onClick={togglePopup} 
+                className="absolute top-6 right-6 text-blue-400 hover:text-white transition-colors"
+                aria-label="Close modal"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
               </button>
 
-              {!isSubmitted ? (
-                <>
-                  <h2 className="text-xl font-light tracking-widest mb-2 uppercase text-blue-100">GET AVAILABLE PRICE LIST </h2>
-                  <p className="text-blue-400/60 text-xs mb-8 uppercase tracking-tighter">DAMAC ISLANDS 2 </p>
+              <h2 className="text-xl font-light tracking-widest mb-2 uppercase text-blue-100">
+                GET COSTING DETAILS
+              </h2>
+              <p className="text-blue-400/60 text-xs mb-8 uppercase tracking-tighter">
+                DAMAC ISLANDS 2
+              </p>
 
-                  <form className="space-y-6" onSubmit={handleSubmit}>
-                    <div className="relative">
-                      <input required type="text" className="w-full bg-transparent border-b border-blue-900/50 py-3 focus:border-blue-400 outline-none transition-colors placeholder:text-gray-600" placeholder="FULL NAME" />
-                    </div>
-                    <div className="relative">
-                      <input required type="email" className="w-full bg-transparent border-b border-blue-900/50 py-3 focus:border-blue-400 outline-none transition-colors placeholder:text-gray-600" placeholder="EMAIL ADDRESS" />
-                    </div>
-                    <div className="relative">
-                      <input required type="tel" className="w-full bg-transparent border-b border-blue-900/50 py-3 focus:border-blue-400 outline-none transition-colors placeholder:text-gray-600" placeholder="PHONE NUMBER" />
-                    </div>
-                    
-                    <button 
-                      type="submit" 
-                      disabled={isLoading}
-                      className="w-full bg-blue-700 hover:bg-blue-600 text-white py-4 mt-4 font-black uppercase tracking-[0.3em] transition-all flex justify-center items-center"
-                    >
-                      {isLoading ? "PROCESSING..." : "SUBMIT"}
-                    </button>
-                  </form>
-                </>
-              ) : (
-                /* Success Message - Only shown after submit */
-                <motion.div 
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="py-12 text-center"
+              <form className="space-y-6" onSubmit={handleSubmit}>
+                <div className="relative">
+                  <input 
+                    required 
+                    type="text" 
+                    className="w-full bg-transparent border-b border-blue-900/50 py-3 focus:border-blue-400 outline-none transition-colors placeholder:text-gray-600 text-white" 
+                    placeholder="FULL NAME" 
+                  />
+                </div>
+                <div className="relative">
+                  <input 
+                    required 
+                    type="email" 
+                    className="w-full bg-transparent border-b border-blue-900/50 py-3 focus:border-blue-400 outline-none transition-colors placeholder:text-gray-600 text-white" 
+                    placeholder="EMAIL ADDRESS" 
+                  />
+                </div>
+                <div className="relative">
+                  <input 
+                    required 
+                    type="tel" 
+                    className="w-full bg-transparent border-b border-blue-900/50 py-3 focus:border-blue-400 outline-none transition-colors placeholder:text-gray-600 text-white" 
+                    placeholder="PHONE NUMBER" 
+                  />
+                </div>
+
+                 <div className="bwt_checkbox_group">
+              <input
+                type="checkbox"
+                id="consent"
+                checked={isChecked}
+                onChange={(e) => setIsChecked(e.target.checked)}
+                required
+              />
+              <label htmlFor="consent">
+                I authorize company representatives to reach out via Call, SMS, Email, or WhatsApp.
+              </label>
+            </div>
+                
+                <button 
+                  type="submit" 
+                  disabled={isLoading}
+                  className="w-full bg-blue-700 hover:bg-blue-600 disabled:bg-blue-900 disabled:text-blue-300 text-white py-4 mt-4 font-black uppercase tracking-[0.3em] transition-all flex justify-center items-center shadow-lg shadow-blue-900/20"
                 >
-                  <div className="w-20 h-20 bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-6 border border-blue-500/50">
-                    <svg className="w-10 h-10 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-2 uppercase tracking-widest">Inquiry Received</h3>
-                  <p className="text-blue-200/80 text-sm leading-relaxed max-w-[250px] mx-auto">
-                    Our team will contact you shortly.
-                  </p>
-                </motion.div>
-              )}
+                  {isLoading ? (
+                    <span className="flex items-center gap-2">
+                      <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      </svg>
+                      PROCESSING...
+                    </span>
+                  ) : "SUBMIT"}
+                </button>
+              </form>
             </motion.div>
           </>
         )}
