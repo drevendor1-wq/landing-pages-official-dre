@@ -3,8 +3,8 @@ import React, { useState, useEffect } from 'react';
 import ContactModal from "../damac-components/ContactModal"
 
 const plans = [
-  { id: '2bhk', name: '4-BEDROOM TH', size: '2208 sq. ft.', price: '2.75 M', img: '/images/damac-islands/DamacIslandFloor4.jpg' },
-  { id: '3bhk', name: '5-BEDROOM MID TH', size: '3492.24 sq. ft.', price: '3.75 M', img: '/images/damac-islands/DamacIslandFloor5.jpg' },
+  { id: '2bhk', name: '4-BEDROOM TOWNHOUSE', size: '2208 sq. ft.', price: '2.75 M', img: '/images/damac-islands/DamacIslandFloor4.jpg' },
+  { id: '3bhk', name: '5-BEDROOM TOWNHOUSE', size: '3492.24 sq. ft.', price: '3.75 M', img: '/images/damac-islands/DamacIslandFloor5.jpg' },
   { id: 'villa', name: '6-BEDROOM VILLA', size: '4440 sq. ft.', price: '6.35 M', img: '/images/damac-islands/DamacIslandFloor6.jpg' },
   { id: 'villas', name: '7-BEDROOM VILLA', size: '17,078 sq. ft.', price: '18.5 M', img: '/images/damac-islands/DamacIslandFloor7.jpg' }
 ];
