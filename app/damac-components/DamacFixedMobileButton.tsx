@@ -1,9 +1,10 @@
 "use client";
 import type { Metadata } from "next";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import CountryPhoneDropdown from "../components/CountryPhoneDropdown";
+import { detectCountryCode } from "../utils/countryDetection";
 
 const DamacFixedMobileButton = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,19 +22,39 @@ const DamacFixedMobileButton = () => {
     setIsOpen(!isOpen);
   };
 
+  useEffect(() => {
+      if (isOpen) {
+        setData({ name: "", email: "", phone: "" });
+        const detectCountry = async () => {
+          const code = await detectCountryCode();
+          setPhoneCode(code);
+        };
+        detectCountry();
+      }
+    }, [isOpen]);
+
+  const handlePhoneChange = (value: string) => {
+    const digitsOnly = value.replace(/\D/g, "");
+    setData({ ...data, phone: digitsOnly });
+  };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
 
     try {
+      const payload = {
+  ...data,
+  phone: `${phoneCode}${data.phone}`,
+  consent: isChecked,
+};
+
+console.log("Submitting this data:", payload)
+
       const response = await fetch("/api/submit-form", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...data,
-          phone: `${phoneCode}${data.phone}`,
-          consent: isChecked,
-        }),
+        body: JSON.stringify(payload),
       });
 
       if (response.ok) {
@@ -104,6 +125,7 @@ const DamacFixedMobileButton = () => {
                 <div className="relative">
                   <input 
                     required 
+                    onChange={(e) => setData({ ...data, name: e.target.value })}
                     type="text" 
                     className="w-full bg-transparent border-b border-blue-900/50 py-3 focus:border-blue-400 outline-none transition-colors placeholder:text-gray-600 text-white" 
                     placeholder="FULL NAME" 
@@ -112,6 +134,7 @@ const DamacFixedMobileButton = () => {
                 <div className="relative">
                   <input 
                     required 
+                    onChange={(e) => setData({ ...data, email: e.target.value })}
                     type="email" 
                     className="w-full bg-transparent border-b border-blue-900/50 py-3 focus:border-blue-400 outline-none transition-colors placeholder:text-gray-600 text-white" 
                     placeholder="EMAIL ADDRESS" 
@@ -121,6 +144,7 @@ const DamacFixedMobileButton = () => {
                   <CountryPhoneDropdown value={phoneCode || "+971"} onChange={setPhoneCode} />
                   <input 
                     required 
+                    onChange={(e) => handlePhoneChange(e.target.value)}
                     type="number" 
                     className="w-full bg-transparent border-blue-900/50 py-3 pl-2 focus:border-blue-400 outline-none transition-colors placeholder:text-gray-600 text-white" 
                     placeholder="PHONE NUMBER" 
