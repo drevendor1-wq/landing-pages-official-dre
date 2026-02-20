@@ -12,7 +12,7 @@ export default function Contact() {
     interestedUnitType: "",
   });
   const [phoneCode, setPhoneCode] = useState<string | null>(null);
-  const [consentChecked, setConsentChecked] = useState(false);
+  const [consentChecked, setConsentChecked] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 

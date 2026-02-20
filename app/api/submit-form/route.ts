@@ -3,7 +3,18 @@ import { NextRequest, NextResponse } from 'next/server';
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, email, phone, unitType, consent } = body;
+    const { name, email, phone, unitType, consent } = body;;
+
+    const projectName = body.project; // ✅ dynamic now
+
+    const responseNew = NextResponse.json({ success: true });
+
+    responseNew.cookies.set("project", projectName, {
+      path: "/",
+      httpOnly: false,
+    });
+
+    return responseNew;
 
     // Validate required fields (unitType is optional)
     // if (!name || !email || !phone || !consent) {

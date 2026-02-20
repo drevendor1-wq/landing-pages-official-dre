@@ -16,7 +16,6 @@ interface FloorPlanEnquiryModalProps {
 export default function ContactModal({
   isOpen,
   onClose,
-  floorPlanTitle,
   buttonText = "ENQUIRE NOW",
 }: FloorPlanEnquiryModalProps) {
   const [enquiryData, setEnquiryData] = useState({
@@ -77,6 +76,7 @@ export default function ContactModal({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    console.log("Submitting this data:", enquiryData)
     try {
       const response = await fetch("/api/submit-enquiry", {
         method: "POST",
@@ -84,7 +84,6 @@ export default function ContactModal({
         body: JSON.stringify({
           ...enquiryData,
           phone: `${phoneCode}${enquiryData.phone}`,
-          message: `Enquiry for: ${floorPlanTitle || "Floor Plan"}`,
           consent: isChecked,
         }),
       });

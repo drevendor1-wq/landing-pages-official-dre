@@ -73,7 +73,7 @@ const DamacIsland: React.FC = () => {
         </section>
 
         <section id="contact" className="py-24 px-6 md:px-12 lg:px-24">
-          <Contact />
+          <Contact projectTitle="Damac Islands 2 | Premium Waterfront Townhouses and Villas" />
         </section>
       </main>
       <DamacFixedMobileButton />

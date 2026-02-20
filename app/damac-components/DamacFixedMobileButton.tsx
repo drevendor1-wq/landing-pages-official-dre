@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import CountryPhoneDropdown from "../components/CountryPhoneDropdown";
 import { detectCountryCode } from "../utils/countryDetection";
 
+
 const DamacFixedMobileButton = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -47,9 +48,8 @@ const DamacFixedMobileButton = () => {
   ...data,
   phone: `${phoneCode}${data.phone}`,
   consent: isChecked,
+  project: "Damac Islands 2 | Premium Waterfront Townhouses and Villas",
 };
-
-console.log("Submitting this data:", payload)
 
       const response = await fetch("/api/submit-form", {
         method: "POST",
@@ -58,7 +58,7 @@ console.log("Submitting this data:", payload)
       });
 
       if (response.ok) {
-        router.push("/damac-thank-you"); // Use Next.js router for smoother transitions
+        router.push(`/thank-you`); // Use Next.js router for smoother transitions
       } else {
         const errorData = await response.json();
         alert(`Submission failed: ${errorData.message || "Unknown error"}`);

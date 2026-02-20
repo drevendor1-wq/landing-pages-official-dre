@@ -11,6 +11,7 @@ interface FloorPlanEnquiryModalProps {
   onClose: () => void;
   floorPlanTitle?: string;
   buttonText?: string;
+  projectTitle: string;
 }
 
 export default function ContactModal({
@@ -18,6 +19,7 @@ export default function ContactModal({
   onClose,
   floorPlanTitle,
   buttonText = "ENQUIRE NOW",
+  projectTitle,
 }: FloorPlanEnquiryModalProps) {
   const [enquiryData, setEnquiryData] = useState({
     name: "",
@@ -77,6 +79,7 @@ export default function ContactModal({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    
     try {
       const response = await fetch("/api/submit-enquiry", {
         method: "POST",
@@ -86,9 +89,10 @@ export default function ContactModal({
           phone: `${phoneCode}${enquiryData.phone}`,
           message: `Enquiry for: ${floorPlanTitle || "Floor Plan"}`,
           consent: isChecked,
+          project: projectTitle,
         }),
       });
-      if (response.ok) { window.location.href = "/damac-thank-you";}
+      if (response.ok) { window.location.href = "/thank-you";}
       else { alert("Error submitting enquiry."); }
     } catch (error) {
       alert("Error submitting enquiry.");

@@ -1,7 +1,11 @@
 "use client"
 import React, { useState } from 'react';
 
-const Contact: React.FC = () => {
+interface ContactProps {
+  projectTitle: string;
+}
+
+const Contact: React.FC<ContactProps> = ({ projectTitle }) => {
   const [formData, setFormData] = useState({
     name: '', 
     email: '', 
@@ -14,14 +18,19 @@ const Contact: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    try {
+    try { 
+       const payload = {
+      ...formData,
+      project: projectTitle, 
+    };
+    
       const response = await fetch("/api/submit-form", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(payload),
       });
       if (response.ok) { 
-        window.location.href = "/damac-thank-you"
+        window.location.href = "/thank-you"
       } else { 
         alert("Submission failed. Please try again."); 
       }

@@ -255,7 +255,7 @@ function HomePageContent() {
               {/* Property Image with Price Overlay */}
               <div className="property-image-wrapper">
                 <Image
-                  src="/images/NewDamac.webp"
+                  src="/images/sobha-sanctuary/SobhaSanctuaryExterior3.jpg"
                   alt="Damac Islands 2"
                   width={800}
                   height={500}
@@ -263,7 +263,7 @@ function HomePageContent() {
                 />
                 <div className="property-price-overlay">
                   <div className="price-text">
-                    AED 2.75M*
+                    AED 5M
                   </div>
                 </div>
               </div>
