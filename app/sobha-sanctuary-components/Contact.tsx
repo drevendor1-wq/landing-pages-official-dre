@@ -50,7 +50,7 @@ export default function Contact() {
       });
 
       if (response.ok) {
-        window.location.href = "/sobha-thank-you";
+        window.location.href = "/thank-you";
       } else {
         alert("Error submitting form. Please try again.");
       }

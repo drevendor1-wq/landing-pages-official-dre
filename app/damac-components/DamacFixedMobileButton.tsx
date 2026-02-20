@@ -40,36 +40,38 @@ const DamacFixedMobileButton = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsLoading(true);
+  e.preventDefault();
+  setIsLoading(true);
 
-    try {
-      const payload = {
-  ...data,
-  phone: `${phoneCode}${data.phone}`,
-  consent: isChecked,
-  project: "Damac Islands 2 | Premium Waterfront Townhouses and Villas",
-};
+  try {
+    const payload = {
+      ...data,
+      phone: `${phoneCode}${data.phone}`,
+      consent: isChecked,
+    };
+    console.log(payload)
+    const response = await fetch("/api/submit-form", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
 
-      const response = await fetch("/api/submit-form", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-
-      if (response.ok) {
-        router.push(`/thank-you`); // Use Next.js router for smoother transitions
-      } else {
-        const errorData = await response.json();
-        alert(`Submission failed: ${errorData.message || "Unknown error"}`);
-      }
-    } catch (error) {
-      console.error("Submission error:", error);
-      alert("Error submitting form. Please check your connection.");
-    } finally {
-      setIsLoading(false);
+    if (response.ok) {
+      // SUCCESS: Clear state and redirect
+      router.push(`/thank-you`);
+    } else {
+      // API ERROR: The request finished, but the server returned a 4xx or 5xx
+      const errorData = await response.json();
+      alert(`Submission failed: ${errorData.message || "Something went wrong"}`);
     }
-  };
+  } catch (error) {
+    // NETWORK ERROR: The request failed to reach the server
+    console.error("Submission error:", error);
+    alert("Error submitting form. Please check your connection.");
+  } finally {
+    setIsLoading(false);
+  }
+};
 
   return (
     <>

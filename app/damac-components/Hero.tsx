@@ -86,13 +86,13 @@ const openEnquiryModal = (text: string = "Request Brochure") => {
       </div>
     </div>
       <div>
+        
       <ContactModal
             isOpen={enquiryModalOpen}
             onClose={closeEnquiryModal}
             floorPlanTitle="DAMAC ISLANDS 2"
-            buttonText={buttonText}
-            projectTitle="Damac Islands 2 | Premium Waterfront Townhouses and Villas"
-          />
+            buttonText={buttonText} />
+
           </div>
   </div>
 </div>

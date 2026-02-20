@@ -11,7 +11,6 @@ interface FloorPlanEnquiryModalProps {
   onClose: () => void;
   floorPlanTitle?: string;
   buttonText?: string;
-  projectTitle: string;
 }
 
 export default function ContactModal({
@@ -19,7 +18,6 @@ export default function ContactModal({
   onClose,
   floorPlanTitle,
   buttonText = "ENQUIRE NOW",
-  projectTitle,
 }: FloorPlanEnquiryModalProps) {
   const [enquiryData, setEnquiryData] = useState({
     name: "",
@@ -89,7 +87,6 @@ export default function ContactModal({
           phone: `${phoneCode}${enquiryData.phone}`,
           message: `Enquiry for: ${floorPlanTitle || "Floor Plan"}`,
           consent: isChecked,
-          project: projectTitle,
         }),
       });
       if (response.ok) { window.location.href = "/thank-you";}

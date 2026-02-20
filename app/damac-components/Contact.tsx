@@ -21,9 +21,8 @@ const Contact: React.FC<ContactProps> = ({ projectTitle }) => {
     try { 
        const payload = {
       ...formData,
-      project: projectTitle, 
     };
-    
+      console.log(payload)
       const response = await fetch("/api/submit-form", {
         method: "POST",
         headers: { "Content-Type": "application/json" },

@@ -2,23 +2,13 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Footer from "../components/Footer";
-import { cookies } from "next/headers";
 
-export const dynamic = "force-dynamic";
-
-export async function generateMetadata(): Promise<Metadata> {
-  const cookieStore = await cookies();
-  const project = cookieStore.get("project")?.value || "HADO by Beyond - Waterfront Apartments in Dubai Islands";
-
-  return {
-    title: `${project}`,
-    description: `Thank you for your enquiry about ${project}.`,
-  };
-}
+export const metadata: Metadata = {
+  title: "Thank You",
+  description: "DRE",
+};
 
 export default async function ThankYouPage() {
-  const cookieStore = await cookies();
-  const project = cookieStore.get("project")?.value || "this project";
   return (
     <>
       <header className="site_header">
