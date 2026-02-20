@@ -90,3 +90,25 @@
 .btn_whatsapp:hover {
   background-color: #f7f3f0;
 }
+
+@media (max-width: 576px) {
+  .thank_you_card {
+    padding: 40px 20px; /* Reducing padding slightly for small screens */
+    margin: 0 15px;      /* Ensuring the card doesn't touch the screen edges */
+    border-radius: 30px; 
+  }
+
+  .button_group {
+    flex-direction: column; /* Stacks buttons vertically */
+    gap: 12px;              /* Space between stacked buttons */
+  }
+
+  .btn_primary, 
+  .btn_whatsapp {
+    width: 100%;           /* Buttons take full width of the card */
+    display: block;
+    padding: 18px 20px;    /* Slightly taller for easier tapping */
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+}

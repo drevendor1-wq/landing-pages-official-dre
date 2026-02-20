@@ -88,7 +88,7 @@ export default function ContactModal({
           consent: isChecked,
         }),
       });
-      if (response.ok) { window.location.href = "/damacthank-you";}
+      if (response.ok) { window.location.href = "/damac-thank-you";}
       else { alert("Error submitting enquiry."); }
     } catch (error) {
       alert("Error submitting enquiry.");

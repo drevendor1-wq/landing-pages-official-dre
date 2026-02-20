@@ -8,8 +8,13 @@ import CountryPhoneDropdown from "../components/CountryPhoneDropdown";
 const DamacFixedMobileButton = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-   const [isChecked, setIsChecked] = useState(true);
-   const [phoneCode, setPhoneCode] = useState<string | null>(null);
+  const [isChecked, setIsChecked] = useState(true);
+  const [phoneCode, setPhoneCode] = useState<string | null>(null);
+  const [data, setData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+  });
   const router = useRouter();
 
   const togglePopup = () => {
@@ -20,22 +25,15 @@ const DamacFixedMobileButton = () => {
     e.preventDefault();
     setIsLoading(true);
 
-    // 1. Capture the form data
-    const formData = new FormData(e.currentTarget);
-    const data = {
-      fullName: formData.get("fullName"),
-      email: formData.get("email"),
-      phoneCode: phoneCode || "+971",
-      phoneNumber: formData.get("phoneNumber"),
-      consent: isChecked,
-    };
-
     try {
       const response = await fetch("/api/submit-form", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        // 2. Actually send the data!
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          ...data,
+          phone: `${phoneCode}${data.phone}`,
+          consent: isChecked,
+        }),
       });
 
       if (response.ok) {
