@@ -21,7 +21,7 @@ const Contact: React.FC = () => {
         body: JSON.stringify(formData),
       });
       if (response.ok) { 
-        window.location.href = "./damac-thank-you"
+        window.location.href = "/damac-thank-you"
       } else { 
         alert("Submission failed. Please try again."); 
       }

@@ -3,11 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import Footer from "../components/Footer";
 
-export const metadata: Metadata = {
-  title: "HADO by Beyond - Waterfront Apartments in Dubai Islands",
-  description: "Discover HADO by Beyond - Ultra-Japanese design waterfront apartments in Dubai Islands. 1-4BR units starting from 2.4M AED. 30% capital appreciation potential. Q2 2029 handover.",
-};
-
 export default function ThankYouPage() {
   return (
     <>

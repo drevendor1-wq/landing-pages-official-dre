@@ -1,55 +1,31 @@
 "use client";
-import type { Metadata } from "next";
+
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useRouter } from 'next/navigation';
-import CountryPhoneDropdown from "../components/CountryPhoneDropdown";
 
 const DamacFixedMobileButton = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-   const [isChecked, setIsChecked] = useState(true);
-   const [phoneCode, setPhoneCode] = useState<string | null>(null);
+   const [isChecked, setIsChecked] = useState(false);
   const router = useRouter();
 
   const togglePopup = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-
-    // 1. Capture the form data
-    const formData = new FormData(e.currentTarget);
-    const data = {
-      fullName: formData.get("fullName"),
-      email: formData.get("email"),
-      phoneCode: phoneCode || "+971",
-      phoneNumber: formData.get("phoneNumber"),
-      consent: isChecked,
-    };
-
-    try {
-      const response = await fetch("/api/submit-form", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        // 2. Actually send the data!
-        body: JSON.stringify(data),
-      });
-
-      if (response.ok) {
-        router.push("/damac-thank-you"); // Use Next.js router for smoother transitions
-      } else {
-        const errorData = await response.json();
-        alert(`Submission failed: ${errorData.message || "Unknown error"}`);
-      }
-    } catch (error) {
-      console.error("Submission error:", error);
-      alert("Error submitting form. Please check your connection.");
-    } finally {
+    
+    // Simulating an API call (e.g., sending to Formspree, HubSpot, or a custom route)
+    setTimeout(() => {
       setIsLoading(false);
-    }
+      setIsOpen(false);
+      
+      // Redirect to the thank-you page in your /app directory
+      router.push('/damac-thank-you'); 
+    }, 1200);
   };
 
   return (
@@ -119,12 +95,11 @@ const DamacFixedMobileButton = () => {
                     placeholder="EMAIL ADDRESS" 
                   />
                 </div>
-                <div className="relative border-b border-blue-900/50 focus-within:border-blue-400 transition-colors flex items-center">
-                  <CountryPhoneDropdown value={phoneCode || "+971"} onChange={setPhoneCode} />
+                <div className="relative">
                   <input 
                     required 
-                    type="number" 
-                    className="w-full bg-transparent border-blue-900/50 py-3 pl-2 focus:border-blue-400 outline-none transition-colors placeholder:text-gray-600 text-white" 
+                    type="tel" 
+                    className="w-full bg-transparent border-b border-blue-900/50 py-3 focus:border-blue-400 outline-none transition-colors placeholder:text-gray-600 text-white" 
                     placeholder="PHONE NUMBER" 
                   />
                 </div>

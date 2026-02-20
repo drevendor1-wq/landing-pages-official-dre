@@ -4,7 +4,7 @@ import { Home, BedDouble, Wallet, Calendar, Key } from 'lucide-react';
 const Highlights: React.FC = () => {
   const highlightItems = [
     { title: "Property Type", desc: "Townhouses & Villas", icon: <Home size={20} /> },
-    { title: "Bedrooms", desc: "4, 5, 6 & 7 BHK", icon: <BedDouble size={20} /> },
+    { title: "Bedrooms", desc: "4, 5, 6 & 7 BR", icon: <BedDouble size={20} /> },
     { title: "Starting Price", desc: "2.75 M AED", icon: <Wallet size={20} /> },
     { title: "Payment Plan", desc: "75/25", icon: <Calendar size={20} /> },
     { title: "Handover", desc: "Q2 2029", icon: <Key size={20} /> },

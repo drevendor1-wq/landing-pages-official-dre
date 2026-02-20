@@ -1,0 +1,600 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lexend:wght@300;400;500;600&display=swap');
+@import url('https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css');
+
+:root {
+  --bg-primary: #fcfcfc;
+  --text-main: #1A1A1A;
+  --zinc-200: #e4e4e7;
+  --zinc-400: #a1a1aa;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, .font-heading {
+  font-family: 'Lexend', sans-serif;
+}
+
+/* Custom Minimalist Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f8f8f8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d4d4d8;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a1a1aa;
+}
+
+/* Custom Glassmorphism Utilities */
+.glass-nav {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.hero-gradient {
+  background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.45));
+}
+
+/* Animation Utilities */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.damac_footer_section{
+  width: 100%;
+  position: relative;
+  margin-top: 80px;
+}
+.damac_footer_container{
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.damac_footer_row{
+  display: flex;
+  align-items: stretch;
+  position: relative;
+}
+.damac_footer_content_col{
+  width: 50%;
+  background: #000;
+  display: flex;
+  align-items: flex-start;
+  padding: 60px 50px;
+  position: relative;
+}
+.damac_footer_content_wrapper{
+  width: 100%;
+}
+.damac_footer_content_area{
+  width: 100%;
+}
+.damac_footer_qr_code{
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.damac_footer_qr_image{
+  height: auto;
+  width: auto;
+  max-width: 200px;
+  max-height: 200px;
+  object-fit: contain;
+}
+.damac_footer_verified_text{
+  font-size: 24px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0 12px 0;
+  font-family: var(--font-cinzel), serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.damac_footer_disclaimer{
+  font-size: 13px;
+  line-height: 1.8;
+  color: #ccc;
+  margin: 0 0 20px 0;
+  font-family: var(--font-gilroy), sans-serif;
+}
+.damac_footer_disclaimer:last-of-type{
+  margin-bottom: 0;
+}
+.damac_footer_links{
+  margin-top: 30px;
+}
+.damac_footer_links_list{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 30px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.damac_footer_links_list li a{
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: var(--font-gilroy), sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+.damac_footer_links_list li a:hover{
+  color: #dcc779;
+}
+.damac_footer_image_col{
+  width: 50%;
+  position: relative;
+  overflow: visible;
+  padding-top: 100px;
+}
+.damac_footer_image_wrapper{
+  width: 100%;
+  height: calc(100% + 100px);
+  position: absolute;
+  top: -100px;
+  left: 0;
+  right: 0;
+}
+.damac_footer_image{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* --- RESET & BASE STYLES --- */
+.damac_contact_section {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  padding: 80px 20px;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* --- HEADER STYLES --- */
+.damac_contact_header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.damac_contact_header p:first-child {
+  color: #b45309;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.damac_contact_heading {
+  font-size: 35px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
+
+.damac_contact_description {
+  color: #b3b3b3;
+  font-size: 17px;
+  max-width: 800px;
+  margin: 0 auto 30px;
+  line-height: 1.6;
+}
+
+/* --- CHECKLIST STYLES --- */
+.damac_contact_checklist_wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.damac_contact_checklist_item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.damac_contact_checklist_icon {
+  color: #b45309;
+}
+
+.damac_contact_checklist_text {
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+/* --- FORM STYLES --- */
+.damac_contact_form {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 60px;
+  border-radius: 4px;
+  margin-top: 40px;
+}
+
+.damac_contact_form_columns {
+  display: flex;
+  flex-direction: column; /* Stacked for mobile */
+  gap: 20px;
+}
+
+.damac_contact_form_group {
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+.damac_contact_form_group label {
+  color: #b45309;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.damac_contact_form_group input:not([type="checkbox"]) {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 12px 0;
+  color: #ffffff;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+  outline: none;
+}
+
+.damac_contact_form_group input:focus {
+  border-bottom: 1px solid #b45309;
+}
+
+.damac_contact_form_group input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* --- PHONE INPUT WRAPPER --- */
+.damac_contact_phone_wrapper {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.damac_contact_phone_wrapper input {
+  border-bottom: none !important;
+  flex: 1;
+}
+
+/* --- CONSENT CHECKBOX --- */
+.damac_contact_consent_group {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.damac_contact_consent_group input[type="checkbox"] {
+  margin-top: 5px;
+  accent-color: #966746;
+  cursor: pointer;
+}
+
+.damac_contact_select{
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23121212' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 18px center;
+  padding-right: 40px;
+}
+.damac_contact_select option{
+  padding: 10px;
+  color: #121212;
+}
+
+.damac_contact_consent_group label {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+/* --- SUBMIT BUTTON --- */
+.damac_contact_submit_btn {
+  width: 100%;
+  background-color: #b45309;
+  color: #ffffff;
+  border: none;
+  padding: 18px;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.damac_contact_submit_btn:hover:not(:disabled) {
+  background-color: #b45309;
+}
+
+.damac_contact_submit_btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+:root {
+  /* Colors extracted from the image */
+  --sobha-burnt-orange: #e67300;     /* The "AED 5.0M" button color */
+  --sobha-deep-bronze: #4a3f35;      /* Darker architectural tones */
+  --sobha-warm-grey: #8c837a;        /* Muted window/shadow tones */
+  --sobha-sand: #f4f1ee;             /* Light background for contrast */
+  --sobha-white: #ffffff;
+  --sobha-text-main: #2d2926;        /* Deep charcoal for readability */
+  --sobha-border: #d6cfc7;
+}
+
+.bwt_modal_overlay {
+  position: fixed;
+  inset: 0;
+  /* Dark bronze overlay with transparency */
+  background: rgba(74, 63, 53, 0.7); 
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.bwt_modal_container {
+  background: var(--sobha-white);
+  width: 100%;
+  max-width: 500px;
+  border-radius: 4px; /* Sharper edges for a more premium architectural feel */
+  position: relative;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  border-top: 5px solid var(--sobha-burnt-orange); /* Brand accent line */
+}
+
+.bwt_modal_close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  color: var(--sobha-deep-bronze);
+  cursor: pointer;
+  z-index: 10;
+  font-size: 1.2rem;
+}
+
+.bwt_modal_content {
+  padding: 40px;
+}
+
+.bwt_modal_subtitle {
+  color: var(--sobha-deep-bronze);
+  font-weight: 400; /* Lighter weight for luxury feel */
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px; /* Matching the "PRIVATE COMMUNITY LIVING" style */
+}
+
+.bwt_whatsapp_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #25d366; 
+  color: white;
+  padding: 12px 15px;
+  border-radius: 2px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 25px;
+  transition: opacity 0.3s;
+}
+
+.bwt_whatsapp_btn:hover {
+  opacity: 0.9;
+}
+
+.bwt_form_group {
+  margin-bottom: 22px;
+}
+
+.bwt_form_group label {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--sobha-warm-grey);
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.bwt_form_group input {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid var(--sobha-border);
+  border-radius: 2px;
+  outline: none;
+  background: var(--sobha-sand);
+  transition: all 0.3s;
+  color: var(--sobha-text-main);
+}
+
+.bwt_form_group input:focus {
+  border-color: var(--sobha-burnt-orange);
+  background: var(--sobha-white);
+}
+
+.bwt_phone_input_wrapper {
+  display: flex;
+  gap: 0;
+  align-items: center;
+  border: 1px solid var(--sobha-border);
+  border-radius: 2px;
+  background: var(--sobha-sand);
+}
+
+.bwt_phone_input_wrapper input {
+  border: none;
+  background: transparent;
+}
+
+.bwt_checkbox_group {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 30px;
+  align-items: flex-start;
+}
+
+.bwt_checkbox_group label {
+  font-size: 0.8rem;
+  color: var(--sobha-warm-grey);
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.bwt_submit_btn {
+  width: 100%;
+  background: var(--sobha-burnt-orange); /* Primary CTA color from image */
+  color: white;
+  padding: 18px;
+  border: none;
+  border-radius: 2px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.3s;
+}
+
+.bwt_submit_btn:hover {
+  background: #cc6600; /* Slightly darker orange */
+  transform: translateY(-1px);
+}
+
+.bwt_submit_btn:disabled {
+  background: var(--sobha-warm-grey);
+  cursor: not-allowed;
+}
+
+/* --- RESPONSIVE BREAKPOINTS --- */
+
+/* Tablet (max-width: 991px) */
+@media (max-width: 991px) {
+  .damac_contact_heading {
+    font-size: 32px;
+  }
+  .damac_contact_form {
+    padding: 40px;
+  }
+}
+
+/* Mobile (max-width: 767px) */
+@media (max-width: 767px) {
+  .damac_contact_section {
+    padding: 60px 15px;
+  }
+  
+  .damac_contact_heading {
+    font-size: 26px;
+  }
+
+  .damac_contact_form_columns {
+    grid-template-columns: 1fr; /* Stack columns */
+    gap: 0;
+  }
+
+  .damac_contact_form {
+    padding: 30px 20px;
+  }
+
+  .damac_contact_checklist_wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 20px;
+  }
+  
+  .damac_contact_description {
+    font-size: 16px;
+  }
+}
+
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 1024px){
+  .damac_footer_row{
+    flex-direction: column;
+  }
+  .damac_footer_content_col{
+    width: 100%;
+    padding: 50px 40px;
+  }
+  .damac_footer_image_col{
+    width: 100%;
+    padding-bottom: 0;
+    height: 500px;
+  }
+  .damac_footer_image_wrapper{
+    position: relative;
+    height: 100%;
+  }
+}

@@ -4,7 +4,7 @@ import Image from "next/image";
 import { gsap } from "gsap";
 import CountryPhoneDropdown from "../components/CountryPhoneDropdown";
 import { detectCountryCode } from "../utils/countryDetection";
-import './page.css'
+import './sobhaPage.css'
 
 interface FloorPlanEnquiryModalProps {
   isOpen: boolean;
@@ -88,7 +88,7 @@ export default function ContactModal({
           consent: isChecked,
         }),
       });
-      if (response.ok) { window.location.href = "/damacthank-you";}
+      if (response.ok) { window.location.href = "/sobha-thank-you";}
       else { alert("Error submitting enquiry."); }
     } catch (error) {
       alert("Error submitting enquiry.");
