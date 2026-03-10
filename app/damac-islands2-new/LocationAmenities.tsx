@@ -64,7 +64,7 @@ export default function LocationAmenities() {
                     LOCATION <span className="damac_location_info_heading_gold">ADVANTAGES</span>
                   </h2>
                   <p className="damac_location_info_tagline">
-                 Located in Binghatti City, the project offers seamless connectivity to Dubai’s most important destinations</p>
+                 Dubailand is the ideal retreat for those looking to reconnect with nature and escape the city's hustle and bustle. This beautiful community will offer convenient access to key roads, major highways, and is just a short distance from Al Maktoum International Airport. </p>
                 </div>
 
                 

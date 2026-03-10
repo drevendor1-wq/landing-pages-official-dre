@@ -35,7 +35,7 @@ export default function ContactSection() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("/api/submit-form", {
+      const response = await fetch("/api/submit-enquiry", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -45,6 +45,7 @@ export default function ContactSection() {
           email: formData.email,
           phone: `${phoneCode}${formData.telephone}`,
           unitType: formData.interestedUnitType,
+          message: `Enquiry for Damac Islands 2`,
           consent: consentChecked,
         }),
       });
@@ -179,7 +180,7 @@ export default function ContactSection() {
             className="damac_contact_submit_btn"
             disabled={isSubmitting}
           >
-            {isSubmitting ? "Sending..." : "SEND"}
+            {isSubmitting ? "Submitting..." : "Submit"}
           </button>
         </form>
       </div>

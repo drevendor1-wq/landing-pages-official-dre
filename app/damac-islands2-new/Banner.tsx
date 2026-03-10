@@ -104,7 +104,7 @@ export default function DamacIslandsBanner() {
                   </div>
                   <div className="damac_contact_banner_detail_item">
                     <span className="damac_contact_banner_detail_label">Payment Plan:</span>
-                    <span className="damac_contact_banner_detail_value">75/25</span>
+                    <span className="damac_contact_banner_detail_value">20% | 1% Monthly | 25%</span>
                   </div>
                    <div className="damac_contact_banner_detail_item">
                     <span className="damac_contact_banner_detail_label">Handover:</span>
@@ -115,9 +115,9 @@ export default function DamacIslandsBanner() {
                 <div className="damac_contact_banner_cta_buttons">
                   <button 
                     className="damac_contact_banner_cta_btn damac_contact_banner_cta_btn_filled"
-                    onClick={() => openEnquiryModal("Location Growth Insights")}
+                    onClick={() => openEnquiryModal("Project Growth Insights")}
                   >
-                    Location Growth Insights
+                    Project Growth Insights
                   </button>
                   <button 
                     className="damac_contact_banner_cta_btn damac_contact_banner_cta_btn_bordered"

@@ -2583,6 +2583,14 @@ html,body{
   font-family: var(--font-gilroy), sans-serif;
 }
 
+.damac_about_button {
+    white-space: nowrap;      /* Forces text to stay on one line */
+    font-size: 14px;          /* Slightly smaller to fit mobile screens */
+    padding: 0 20px;          /* Reduced horizontal padding for better fit */
+    width: max-content;       /* Ensures button grows to fit the single line */
+    margin: 0 auto;           /* Optional: centers the button if needed */
+  }
+
 @media (max-width: 1024px){
   /* Amenities Section - Tablet Responsive */
   .damac_amenities_grid{
