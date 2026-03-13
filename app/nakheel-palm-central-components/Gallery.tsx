@@ -1,5 +1,5 @@
 "use client"
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { useState, useEffect, useCallback } from 'react';
 import { X, ChevronLeft, ChevronRight, Maximize2 } from 'lucide-react';
 
@@ -37,18 +37,23 @@ const Gallery = () => {
   }, [selectedIdx, showNext, showPrev]);
 
   // --- Animation Variants ---
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: { staggerChildren: 0.15 }
-    }
-  };
+  // --- Animation Variants ---
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15 }
+  }
+};
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 40 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
-  };
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 40 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: "easeOut" }
+  }
+};
 
   return (
     <section id="gallery" className="py-32 px-6 bg-[#F8FAFC]">
