@@ -1,6 +1,7 @@
 "use client"
 import React, {useState, useEffect} from 'react';
 import { motion } from 'framer-motion';
+import { Phone } from 'lucide-react';
 import ContactModal from "./ContactModal";
 
 const Highlights: React.FC = () => {
@@ -119,9 +120,11 @@ const Highlights: React.FC = () => {
   transition={{ delay: 0.7 }}
   className="mt-10 flex items-center justify-center gap-3 bg-green-500 text-white px-6 md:px-10 py-4 rounded-full text-xs md:text-[14px] font-bold uppercase tracking-[0.1em] hover:bg-green-600 transition-all shadow-xl shadow-[#062C2D]/10 w-full sm:w-fit"
 >
-  <span className="text-center" onClick={() => openEnquiryModal("Request Information")} >
-    Learn More About Palm Central
-  </span>
+ <Phone size={15} className="text-white" />
+              <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white">
+                Call Back From Nakheel Expert
+              </span>
+           
 
   <div className="hidden sm:block w-5 h-[1px] bg-white/50" />
 </motion.button>
