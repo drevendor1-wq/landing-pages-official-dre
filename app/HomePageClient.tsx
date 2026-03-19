@@ -615,12 +615,12 @@ function HomePageContent() {
               </div>
             </div>
 
-            {/* NAKHEEL PALM CENTRAL  */}
-             {/* <div className="property-card">
+            {/* GREENZ DANUBE  */}
+             <div className="property-card">
               
               <div className="property-image-wrapper">
                 <Image
-                  src="/images/nakheel-palm-central/palmCentralCover.jpg"
+                  src="/images/nakheel-palm-central/GreenzCover.avif"
                   alt="Palm Central at Dubai"
                   width={800}
                   height={500}
@@ -628,14 +628,14 @@ function HomePageContent() {
                 />
                 <div className="property-price-overlay">
                   <div className="price-text">
-                    AED 2.5M
+                    AED 3.5M
                   </div>
                 </div>
               </div>
 
               
               <div className="property-details">
-                <h2 className="property-name">Nakheel Palm Central</h2>
+                <h2 className="property-name">Greenz By Danube</h2>
                 
               
                 <div className="property-features">
@@ -644,17 +644,17 @@ function HomePageContent() {
                       <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
                       <polyline points="9 22 9 12 15 12 15 22"/>
                     </svg>
-                    <span>1-5BR</span>
+                    <span>3-6BR</span>
                   </div>
                   <div className="feature-item">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4"/>
                     </svg>
-                    <span>Townhouses</span>
+                    <span>Townhouses & Villas</span>
                   </div>
                   <div className="feature-item">
                     <span style={{ fontSize: "16px", fontWeight: "600" }}>د.إ</span>
-                    <span>2.5M AED</span>
+                    <span>AED 3.5M</span>
                   </div>
                   <div className="feature-item">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -670,7 +670,7 @@ function HomePageContent() {
                       <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
                       <circle cx="12" cy="10" r="3"/>
                     </svg>
-                    <span>Palm Jebel Ali</span>
+                    <span>Academic City, Dubai</span>
                   </div>
                 </div>
 
@@ -682,12 +682,12 @@ function HomePageContent() {
                   >
                     Brochure
                   </button>
-                  <Link href="/eagle-hills-belgrade-waterfront" className="property-action-btn">
+                  <Link href="/greenz-by-danube" className="property-action-btn">
                     View Details
                   </Link>
                 </div>
               </div>
-            </div> */}
+            </div>
              
 
           </div>

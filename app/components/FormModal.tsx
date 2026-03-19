@@ -30,7 +30,7 @@ export default function FormModal() {
       case "roi":
         return "Get available units & price list on Whatsapp & Telegram";
       case "brochure":
-        return "DOWNLOAD HADO BY BEYOND BROCHURE...";
+        return "DOWNLOAD BROCHURE";
       case "layout":
         return "Get HADO by Beyond's layouts on WhatsApp.";
       default:
