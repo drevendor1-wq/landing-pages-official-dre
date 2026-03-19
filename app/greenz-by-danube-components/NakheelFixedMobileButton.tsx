@@ -47,7 +47,7 @@ const NakheelFixedMobileButton = () => {
         ...data,
         phone: `${phoneCode}${data.phone}`,
         consent: isChecked,
-        message: "Enquiry for Bay Villas by Nakheel",
+        message: "Enquiry for Greenz by Danube",
       };
 
       const response = await fetch("/api/submit-enquiry", {
@@ -78,7 +78,7 @@ const NakheelFixedMobileButton = () => {
           onClick={togglePopup}
           className="w-full text-white py-4 rounded-lg font-bold text-xs uppercase tracking-[0.2em] shadow-xl active:scale-[0.96] transition-all"
         >
-          Get Costing Details
+          Explore Pricing & Availability
         </button>
       </div>
 
@@ -121,7 +121,7 @@ const NakheelFixedMobileButton = () => {
                     Exclusive Access
                   </span>
                   <h2 className="text-3xl font-serif text-black tracking-tighter leading-none">
-                    Get Costing Details<br /><span className="text-green-500 font-light text-[19px]">Greenz by Danube</span>
+                    Explore Pricing & Availability<br /><span className="text-green-500 font-light text-[19px]">Greenz by Danube</span>
                   </h2>
                 </div>
 

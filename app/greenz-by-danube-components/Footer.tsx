@@ -95,10 +95,9 @@ const Footer: React.FC = () => {
           <div className="damac_footer_image_col" ref={imageColRef}>
             <div className="damac_footer_image_wrapper">
               <Image
-                src="/images/nakheel-palm-central/GreenzFooter.jpeg"
-                alt="Modern Interior"
-                width={1200}
-                height={700}
+                src="/images/nakheel-palm-central/GreenzNewFooter.jpeg"
+                alt="Greenz"
+                fill
                 className="damac_footer_image"
                 priority
               />

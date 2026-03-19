@@ -81,7 +81,7 @@ const Hero = () => {
             >
               <Phone size={14} className="text-emerald-400" />
               <span className="text-[8px] font-bold tracking-[0.2em] uppercase text-white">
-                Call Back From Nakheel Expert
+                Call Back From Danube Expert
               </span>
             </button>
           </div>

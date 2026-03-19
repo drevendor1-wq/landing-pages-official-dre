@@ -604,6 +604,15 @@ h1, h2, h3, h4, .font-heading {
 
 @media (max-width: 768px) {
 
+  .damac_footer_image_wrapper{
+  width: 100%;
+  height: calc(100% + 100px);
+  position: absolute;
+  top: -100px;
+  left: 0;
+  right: 0;
+}
+
   .bwt_modal_overlay {
     padding: 15px;
     align-items: flex-end; /* Feels more natural on mobile */
