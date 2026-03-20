@@ -56,7 +56,7 @@ export default function ContactFloating() {
 
       // 🔹 2. Zoho Forms submission
       const zohoPromise = fetch(
-        "https://forms.zoho.com/yadunathdxbofficialgm1/form/NEEWFORMTOTESTINCODE",
+        "https://forms.zoho.com/yadunathdxbofficialgm1/form/SignUp/builder",
         {
           method: "POST",
           headers: {
