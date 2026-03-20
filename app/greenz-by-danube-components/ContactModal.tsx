@@ -66,7 +66,7 @@ export default function ContactModal({
       name: enquiryData.name,
       email: enquiryData.email,
       phone: `${phoneCode}${enquiryData.phone}`,
-      message: `Enquiry for: ${floorPlanTitle || "Floor Plan"}`,
+      message: `Enquiry for: Greenz Danube`,
       consent: isChecked
    };
 
@@ -81,39 +81,33 @@ export default function ContactModal({
       });
 
       // 🔹 2. Zoho Forms submission
-      const zohoPromise = fetch(
-        "https://forms.zohopublic.com/drehomesrealestate/form/GreenzbyDanubeTafrax/submissions",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            data: {
-              ...enquiryData,
-          phone: `${phoneCode}${enquiryData.phone}`,
-          message: `Enquiry for: ${floorPlanTitle || "Floor Plan"}`,
-          consent: isChecked,
-            }
-          })
-        }
-      );
+      const zohoPromise = fetch("/api/zoho-submit", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      name: enquiryData.name,
+      email: enquiryData.email,
+      phone: `${phoneCode}${enquiryData.phone}`
+    })
+  });
 
-      // 🔥 Run both in parallel
-      await sheetPromise; // ensure Sheets always saves
-      await zohoPromise.catch(() => null); // don’t block if Zoho fails
+  // ✅ Run both
+  await Promise.allSettled([
+    sheetPromise,
+    zohoPromise
+  ]);
 
-      // ✅ Redirect
-      window.location.href = "/thank-you";
+  // ✅ Redirect
+  window.location.href = "/thank-you";
 
-    } catch (error) {
-      console.error(error);
-      alert("Error submitting form.");
-    } finally {
+} catch (error) {
+  console.error("Submission failed:", error);
+  alert("Inquiry failed. Please try again.");
+}
+finally {
       setIsSubmitting(false);
     }
   };
-  
 
   if (!isOpen) return null;
 

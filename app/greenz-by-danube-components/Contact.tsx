@@ -12,7 +12,7 @@ export default function ContactFloating() {
     interestedUnitType: ""
   });
 
-  const [phoneCode, setPhoneCode] = useState<string | null>(null);
+ const [phoneCode, setPhoneCode] = useState<string>("+971");
   const [consentChecked, setConsentChecked] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -31,80 +31,55 @@ export default function ContactFloating() {
     });
   };
 
- const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  setIsSubmitting(true);
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
 
-  // 1. Prepare data for your internal Google Sheets API
-  const payload = {
-    name: formData.fullName,
-    email: formData.email,
-    phone: `${phoneCode}${formData.telephone}`,
-    unitType: formData.interestedUnitType,
-    consent: consentChecked
-  };
-
-  try {
-    // 🔹 TASK 1: Submit to Google Sheets (Internal API)
-    const sheetPromise = fetch("/api/submit-enquiry", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
-    });
-
-    // 🔹 TASK 2: Submit to Zoho (Hidden Form Trick)
-    // This bypasses the 404/CORS error from your screenshot.
-    const submitToZoho = () => {
-  return new Promise<void>((resolve) => {
-    const form = document.createElement('form');
-    form.method = 'POST';
-    form.action = 'https://forms.zohopublic.com/drehomesrealestate/form/GreenzbyDanubeTafrax/formperma/vWRNfQOrxtXN81bWQJ2ngywzZQjK8ATw02Uv6Y65698';
-    form.target = 'zoho_iframe';
-
-    const zohoFields: Record<string, string> = {
-      'SingleLine': formData.fullName,
-      'Email': formData.email,
-      'PhoneNumber': `${phoneCode}${formData.telephone}`
+    const payload = {
+      name: formData.fullName,
+      email: formData.email,
+      phone: `${phoneCode}${formData.telephone}`,
+      unitType: formData.interestedUnitType,
+      message: `Enquiry For: Greenz Danube`,
+      consent: consentChecked
     };
 
-    Object.entries(zohoFields).forEach(([key, value]) => {
-      const input = document.createElement('input');
-      input.type = 'hidden';
-      input.name = key;
-      input.value = value;
-      form.appendChild(input);
-    });
-
-    const iframe = document.createElement('iframe');
-    iframe.name = 'zoho_iframe';
-    iframe.style.display = 'none';
-
-    document.body.appendChild(iframe);
-    document.body.appendChild(form);
-
-    form.submit();
-
-    setTimeout(() => {
-      document.body.removeChild(form);
-      document.body.removeChild(iframe);
-      resolve();
-    }, 1000);
+   try {
+  // 🔹 TASK 1: Google Sheets
+  const sheetPromise = fetch("/api/submit-enquiry", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload)
   });
-};
 
-    // Run both. Even if one is slow, the user will eventually redirect.
-    await Promise.allSettled([sheetPromise, submitToZoho()]);
+  // 🔹 TASK 2: Zoho via Backend API (NEW ✅)
+  const zohoPromise = fetch("/api/zoho-submit", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      name: formData.fullName,
+      email: formData.email,
+      phone: `${phoneCode}${formData.telephone}`
+    })
+  });
 
-    // ✅ Success: Redirect to thank you page
-    window.location.href = "/thank-you";
+  // ✅ Run both
+  await Promise.allSettled([
+    sheetPromise,
+    zohoPromise
+  ]);
 
-  } catch (error) {
-    console.error("Submission failed:", error);
-    alert("Inquiry failed. Please try again.");
-  } finally {
-    setIsSubmitting(false);
-  }
-};
+  // ✅ Redirect
+  window.location.href = "/thank-you";
+
+} catch (error) {
+  console.error("Submission failed:", error);
+  alert("Inquiry failed. Please try again.");
+}
+finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <section id="Contact" className="relative bg-sky-50 pb-32">
