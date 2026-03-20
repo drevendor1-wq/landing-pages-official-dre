@@ -55,44 +55,42 @@ export default function ContactFloating() {
     // 🔹 TASK 2: Submit to Zoho (Hidden Form Trick)
     // This bypasses the 404/CORS error from your screenshot.
     const submitToZoho = () => {
-      return new Promise<void>((resolve) => {
-        const form = document.createElement('form');
-        form.method = 'POST';
-        form.action = 'https://forms.zohopublic.com/drehomesrealestate/form/GreenzbyDanubeTafrax/submissions';
-        form.target = 'zoho_iframe'; // Prevents page from jumping to Zoho's site
+  return new Promise<void>((resolve) => {
+    const form = document.createElement('form');
+    form.method = 'POST';
+    form.action = 'https://forms.zohopublic.com/drehomesrealestate/form/GreenzbyDanubeTafrax/formperma/vWRNfQOrxtXN81bWQJ2ngywzZQjK8ATw02Uv6Y65698';
+    form.target = 'zoho_iframe';
 
-        // Mapping to Zoho's internal field keys for Name, Email, and Phone
-        const zohoFields: Record<string, string> = {
-          'Name_First': formData.fullName,
-          'Email': formData.email,
-          'PhoneNumber': formData.telephone
-        };
-
-        Object.entries(zohoFields).forEach(([key, value]) => {
-          const input = document.createElement('input');
-          input.type = 'hidden';
-          input.name = key;
-          input.value = value;
-          form.appendChild(input);
-        });
-
-        // Create the hidden "landing" spot for the form
-        const iframe = document.createElement('iframe');
-        iframe.name = 'zoho_iframe';
-        iframe.style.display = 'none';
-
-        document.body.appendChild(iframe);
-        document.body.appendChild(form);
-
-        form.submit();
-
-        // Cleanup after submission
-        setTimeout(() => {
-          if (document.body.contains(form)) document.body.removeChild(form);
-          resolve();
-        }, 1000);
-      });
+    const zohoFields: Record<string, string> = {
+      'SingleLine': formData.fullName,
+      'Email': formData.email,
+      'PhoneNumber': `${phoneCode}${formData.telephone}`
     };
+
+    Object.entries(zohoFields).forEach(([key, value]) => {
+      const input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = key;
+      input.value = value;
+      form.appendChild(input);
+    });
+
+    const iframe = document.createElement('iframe');
+    iframe.name = 'zoho_iframe';
+    iframe.style.display = 'none';
+
+    document.body.appendChild(iframe);
+    document.body.appendChild(form);
+
+    form.submit();
+
+    setTimeout(() => {
+      document.body.removeChild(form);
+      document.body.removeChild(iframe);
+      resolve();
+    }, 1000);
+  });
+};
 
     // Run both. Even if one is slow, the user will eventually redirect.
     await Promise.allSettled([sheetPromise, submitToZoho()]);
