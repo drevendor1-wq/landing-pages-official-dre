@@ -32,64 +32,62 @@ export default function ContactFloating() {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+  e.preventDefault();
+  setIsSubmitting(true);
 
-    const payload = {
-      name: formData.fullName,
-      email: formData.email,
-      phone: `${phoneCode}${formData.telephone}`,
-      unitType: formData.interestedUnitType,
-      message: `Greenz Danube | ${formData.interestedUnitType}`,
-      consent: consentChecked
-    };
-
-    try {
-      // 🔹 1. Google Sheets (existing API)
-      const sheetPromise = fetch("/api/submit-enquiry", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(payload)
-      });
-
-      // 🔹 2. Zoho Forms submission
-      const zohoPromise = fetch(
-        "https://forms.zohopublic.com/drehomesrealestate/form/GreenzbyDanubeTafrax/submissions",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            data: {
-              Name_First: formData.fullName,
-              Email: formData.email,
-              PhoneNumber_countrycode: phoneCode,
-              PhoneNumber: formData.telephone,
-              SingleLine: formData.interestedUnitType,
-              MultiLine: `Greenz Danube`,
-              DecisionBox: consentChecked
-            }
-          })
-        }
-      );
-
-      // 🔥 Run both in parallel
-      await sheetPromise; // ensure Sheets always saves
-      await zohoPromise.catch(() => null); // don’t block if Zoho fails
-
-      // ✅ Redirect
-      window.location.href = "/thank-you";
-
-    } catch (error) {
-      console.error(error);
-      alert("Error submitting form.");
-    } finally {
-      setIsSubmitting(false);
-    }
+  // 1. Prepare common data
+  const payload = {
+    name: formData.fullName,
+    email: formData.email,
+    phone: `${phoneCode}${formData.telephone}`,
+    unitType: formData.interestedUnitType,
+    message: `Greenz Danube | ${formData.interestedUnitType}`,
+    consent: consentChecked
   };
+
+  // 2. Define the two tasks
+  const sendToSheets = fetch("/api/submit-enquiry", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload)
+  });
+
+  const sendToZoho = fetch(
+    "https://forms.zohopublic.com/drehomesrealestate/form/GreenzbyDanubeTafrax/submissions",
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      // Note: Zoho usually expects 'application/x-www-form-urlencoded' 
+      // for public forms, but we'll stick to your JSON structure if that's your requirement.
+      body: JSON.stringify({
+        data: {
+          Name_First: formData.fullName,
+          Email: formData.email,
+          PhoneNumber_countrycode: phoneCode,
+          PhoneNumber: formData.telephone,
+          SingleLine: formData.interestedUnitType,
+          MultiLine: `Greenz Danube`,
+          DecisionBox: consentChecked
+        }
+      })
+    }
+  );
+
+  try {
+    // 🔥 3. Wait for BOTH to finish (or fail) before moving on
+    // allSettled ensures if Zoho fails, Sheets still works (and vice versa)
+    await Promise.allSettled([sendToSheets, sendToZoho]);
+
+    // 4. Redirect only after both attempts are complete
+    window.location.href = "/thank-you";
+
+  } catch (error) {
+    console.error("Submission error:", error);
+    alert("There was an issue submitting your request. Please try again.");
+  } finally {
+    setIsSubmitting(false);
+  }
+};
 
   return (
     <section id="Contact" className="relative bg-sky-50 pb-32">
