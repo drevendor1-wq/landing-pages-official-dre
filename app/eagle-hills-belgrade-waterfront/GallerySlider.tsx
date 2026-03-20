@@ -20,9 +20,9 @@ const galleryImages: GalleryImage[] = [
    { src: "/images/eagle-hills-belgrade/eagleHillsBanners.webp", alt: "Eagle Hills Belgrade WaterFront" },
   { src: "/images/eagle-hills-belgrade/EagleHillsGallery2.webp", alt: "Eagle Hills Belgrade WaterFront" },
   { src: "/images/eagle-hills-belgrade/EagleHillsGallery3.webp", alt: "Eagle Hills Belgrade WaterFront" },
-  { src: "/images/eagle-hills-belgrade/EagleHillsGallery6.webp", alt: "Eagle Hills Belgrade WaterFront" },
-  { src: "/images/eagle-hills-belgrade/EagleHillsGallery7.webp", alt: "Eagle Hills Belgrade WaterFront" },
-  { src: "/images/eagle-hills-belgrade/EagleHillsGallery10.webp", alt: "Eagle Hills Belgrade WaterFront" },
+  { src: "/images/eagle-hills-belgrade/eagleHillsGallery6.webp", alt: "Eagle Hills Belgrade WaterFront" },
+  { src: "/images/eagle-hills-belgrade/eagleHillsGallery7.webp", alt: "Eagle Hills Belgrade WaterFront" },
+  { src: "/images/eagle-hills-belgrade/eagleHillsGallery10.webp", alt: "Eagle Hills Belgrade WaterFront" },
 ];
 
 export default function GallerySlider() {

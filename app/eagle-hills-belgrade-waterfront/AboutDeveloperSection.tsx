@@ -26,7 +26,7 @@ export default function AboutDeveloperSection() {
       <div className="container">
         <div className="damac_about_developer_main_wrapper">
           <div className="damac_about_developer_background" ref={backgroundRef}>
-            <Image src="/images/eagle-hills-belgrade/EagleHillsGallery10.webp" alt="About Developer Background" width={1000} height={1000} />
+            <Image src="/images/eagle-hills-belgrade/eagleHillsGallery10.webp" alt="About Developer Background" width={1000} height={1000} />
           </div>
           <div className="damac_about_developer_content">
             <div className="damac_about_developer_text_wrapper" ref={contentRef}>

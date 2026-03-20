@@ -35,27 +35,54 @@ export default function ContactFloating() {
     e.preventDefault();
     setIsSubmitting(true);
 
+    const payload = {
+      name: formData.fullName,
+      email: formData.email,
+      phone: `${phoneCode}${formData.telephone}`,
+      unitType: formData.interestedUnitType,
+      message: `Greenz Danube | ${formData.interestedUnitType}`,
+      consent: consentChecked
+    };
+
     try {
-      const response = await fetch("/api/submit-enquiry", {
+      // 🔹 1. Google Sheets (existing API)
+      const sheetPromise = fetch("/api/submit-enquiry", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({
-          name: formData.fullName,
-          email: formData.email,
-          phone: `${phoneCode}${formData.telephone}`,
-          unitType: formData.interestedUnitType,
-          message: `Enquiry for: Greenz By Danube`,
-          consent: consentChecked
-        })
+        body: JSON.stringify(payload)
       });
 
-      if (response.ok) {
-        window.location.href = "/thank-you";
-      } else {
-        alert("Error submitting form.");
-      }
+      // 🔹 2. Zoho Forms submission
+      const zohoPromise = fetch(
+        "https://forms.zoho.com/yadunathdxbofficialgm1/form/NEEWFORMTOTESTINCODE",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            data: {
+              Name_First: formData.fullName,
+              Email: formData.email,
+              PhoneNumber_countrycode: phoneCode,
+              PhoneNumber: formData.telephone,
+              SingleLine: formData.interestedUnitType,
+              MultiLine: `Greenz Danube | ${formData.interestedUnitType}`,
+              DecisionBox: consentChecked
+            }
+          })
+        }
+      );
+
+      // 🔥 Run both in parallel
+      await sheetPromise; // ensure Sheets always saves
+      await zohoPromise.catch(() => null); // don’t block if Zoho fails
+
+      // ✅ Redirect
+      window.location.href = "/thank-you";
+
     } catch (error) {
       console.error(error);
       alert("Error submitting form.");
@@ -75,41 +102,28 @@ export default function ContactFloating() {
             "url('https://buyown.house/wp-content/uploads/2026/02/Swimming-Pool-2.jpg')"
         }}
       >
-        {/* Dark overlay */}
         <div className="absolute inset-0 bg-black/40"></div>
-
-        {/* Hero text */}
-        <div className="relative text-center text-white px-4">
-</div>
+        <div className="relative text-center text-white px-4"></div>
       </div>
 
       {/* FLOATING FORM */}
       <div className="max-w-6xl mx-auto px-6">
-
         <div className="relative -mt-32 bg-white rounded-2xl shadow-2xl p-10 md:p-14 border border-gray-100">
 
-        <div className="flex flex-col items-center mb-12">
-  {/* The Accent Line - Light Green */}
-  <div className="w-12 h-1 bg-green-500 mb-6 rounded-full"></div>
+          <div className="flex flex-col items-center mb-12">
+            <div className="w-12 h-1 bg-green-500 mb-6 rounded-full"></div>
+            <h2 className="text-3xl md:text-4xl font-sans font-extrabold tracking-tighter text-black/90 text-center">
+              GET IN TOUCH<span className="text-green-500">.</span>
+            </h2>
+          </div>
 
-  {/* The Main Heading - Deep Black with Light Green Dot */}
-  <h2 className="text-3xl md:text-4xl font-sans font-extrabold tracking-tighter text-black/90 text-center">
-    GET IN TOUCH<span className="text-green-500">.</span>
-  </h2>
-  
-</div>
-
-          <form
-            onSubmit={handleSubmit}
-            className="grid md:grid-cols-2 gap-8"
-          >
+          <form onSubmit={handleSubmit} className="grid md:grid-cols-2 gap-8">
 
             {/* FULL NAME */}
             <div>
               <label className="text-[10px] uppercase font-bold tracking-widest text-green-900/60 block mb-2">
                 Full Name
               </label>
-
               <input
                 type="text"
                 className="w-full border-b-2 border-sky-200 focus:border-green-900 outline-none py-3"
@@ -126,7 +140,6 @@ export default function ContactFloating() {
               <label className="text-[10px] uppercase font-bold tracking-widest text-green-900/60 block mb-2">
                 Email Address
               </label>
-
               <input
                 type="email"
                 className="w-full border-b-2 border-sky-200 focus:border-green-900 outline-none py-3"
@@ -143,7 +156,6 @@ export default function ContactFloating() {
               <label className="text-[10px] uppercase font-bold tracking-widest text-green-900/60 block mb-2">
                 Requirement
               </label>
-
               <select
                 className="w-full border-b-2 border-sky-200 focus:border-green-900 outline-none py-3 bg-transparent"
                 value={formData.interestedUnitType}
@@ -186,7 +198,6 @@ export default function ContactFloating() {
 
             {/* CONSENT */}
             <div className="md:col-span-2 flex items-start gap-3 mt-4">
-
               <input
                 type="checkbox"
                 id="consent"
@@ -195,11 +206,7 @@ export default function ContactFloating() {
                 required
                 className="mt-1 accent-green-900"
               />
-
-              <label
-                htmlFor="consent"
-                className="text-xs text-gray-600"
-              >
+              <label htmlFor="consent" className="text-xs text-gray-600">
                 I authorize company representatives to contact me via Call,
                 WhatsApp, SMS, or Email regarding this property enquiry.
               </label>

@@ -14,8 +14,8 @@ import StickyMobileButton from "./StickyMobileButton";
 import './style.css'
 
 export const metadata: Metadata = {
-  title: "Mercedes-Benz Places | Binghatti City - Luxury Residential Development in Dubai",
-  description: "Discover Mercedes-Benz Places | Binghatti City, a prestigious residential development in Dubai's Business Bay. Experience luxury living with world-class amenities, premium finishes, and exceptional connectivity. Explore 2, 3, 4, and 5-bedroom apartments with flexible payment plans.",
+  title: "Eagle Hills Belgrade Water Front at Serbia",
+  description: "Eagle Hills Belgrade Water Front at Serbia",
 };
 
 export default function DamacIslands2Page() {
