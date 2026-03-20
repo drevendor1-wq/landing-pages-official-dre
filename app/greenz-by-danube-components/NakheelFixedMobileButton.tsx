@@ -38,34 +38,53 @@ const NakheelFixedMobileButton = () => {
     setData({ ...data, phone: digitsOnly });
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
 
-    try {
-      const payload = {
-        ...data,
-        phone: `${phoneCode}${data.phone}`,
-        consent: isChecked,
-        message: "Enquiry for Greenz by Danube",
-      };
+    const payload = {
+      name: data.name,
+      email: data.email,
+      phone: `${phoneCode}${data.phone}`,
+      message: `Enquiry for: Greenz Danube`,
+      consent: isChecked
+   };
 
-      const response = await fetch("/api/submit-enquiry", {
+    try {
+      // 🔹 1. Google Sheets (existing API)
+      const sheetPromise = fetch("/api/submit-enquiry", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
       });
 
-      if (response.ok) {
-        router.push(`/thank-you`);
-      } else {
-        const errorData = await response.json();
-        alert(`Submission failed: ${errorData.message || "Something went wrong"}`);
-      }
-    } catch (error) {
-      console.error("Submission error:", error);
-      alert("Error submitting form.");
-    } finally {
+      // 🔹 2. Zoho Forms submission
+      const zohoPromise = fetch("/api/zoho-submit", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      name: data.name,
+      email: data.email,
+      phone: `${phoneCode}${data.phone}`
+    })
+  });
+
+  // ✅ Run both
+  await Promise.allSettled([
+    sheetPromise,
+    zohoPromise
+  ]);
+
+  // ✅ Redirect
+  window.location.href = "/thank-you";
+
+} catch (error) {
+  console.error("Submission failed:", error);
+  alert("Inquiry failed. Please try again.");
+}
+finally {
       setIsLoading(false);
     }
   };
