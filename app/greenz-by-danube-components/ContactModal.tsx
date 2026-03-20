@@ -61,28 +61,59 @@ export default function ContactModal({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+
+    const payload = {
+      name: enquiryData.name,
+      email: enquiryData.email,
+      phone: `${phoneCode}${enquiryData.phone}`,
+      message: `Enquiry for: ${floorPlanTitle || "Floor Plan"}`,
+      consent: isChecked
+   };
+
     try {
-      const response = await fetch("/api/submit-enquiry", {
+      // 🔹 1. Google Sheets (existing API)
+      const sheetPromise = fetch("/api/submit-enquiry", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...enquiryData,
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+      });
+
+      // 🔹 2. Zoho Forms submission
+      const zohoPromise = fetch(
+        "https://forms.zohopublic.com/drehomesrealestate/form/GreenzbyDanubeTafrax/submissions",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            data: {
+              ...enquiryData,
           phone: `${phoneCode}${enquiryData.phone}`,
           message: `Enquiry for: ${floorPlanTitle || "Floor Plan"}`,
           consent: isChecked,
-        }),
-      });
-      if (response.ok) {
-        window.location.href = "/thank-you";
-      } else {
-        alert("Error.");
-      }
+            }
+          })
+        }
+      );
+
+      // 🔥 Run both in parallel
+      await sheetPromise; // ensure Sheets always saves
+      await zohoPromise.catch(() => null); // don’t block if Zoho fails
+
+      // ✅ Redirect
+      window.location.href = "/thank-you";
+
     } catch (error) {
-      alert("Error.");
+      console.error(error);
+      alert("Error submitting form.");
     } finally {
       setIsSubmitting(false);
     }
   };
+  
 
   if (!isOpen) return null;
 

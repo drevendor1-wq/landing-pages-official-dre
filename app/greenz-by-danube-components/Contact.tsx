@@ -56,7 +56,7 @@ export default function ContactFloating() {
 
       // 🔹 2. Zoho Forms submission
       const zohoPromise = fetch(
-        "https://forms.zoho.com/yadunathdxbofficialgm1/form/SignUp/builder",
+        "https://forms.zohopublic.com/drehomesrealestate/form/GreenzbyDanubeTafrax/submissions",
         {
           method: "POST",
           headers: {
@@ -69,7 +69,7 @@ export default function ContactFloating() {
               PhoneNumber_countrycode: phoneCode,
               PhoneNumber: formData.telephone,
               SingleLine: formData.interestedUnitType,
-              MultiLine: `Greenz Danube | ${formData.interestedUnitType}`,
+              MultiLine: `Greenz Danube`,
               DecisionBox: consentChecked
             }
           })
