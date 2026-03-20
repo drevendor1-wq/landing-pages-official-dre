@@ -32,74 +32,64 @@ export default function ContactFloating() {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  setIsSubmitting(true);
+    e.preventDefault();
+    setIsSubmitting(true);
 
-  const payload = {
-    name: formData.fullName,
-    email: formData.email,
-    phone: `${phoneCode}${formData.telephone}`,
-    unitType: formData.interestedUnitType,
-    message: `Greenz Danube | ${formData.interestedUnitType}`,
-    consent: consentChecked
-  };
+    const payload = {
+      name: formData.fullName,
+      email: formData.email,
+      phone: `${phoneCode}${formData.telephone}`,
+      unitType: formData.interestedUnitType,
+      message: `Greenz Danube | ${formData.interestedUnitType}`,
+      consent: consentChecked
+    };
 
-  console.log("📤 SHEETS PAYLOAD →", payload);
-
-  // ✅ SAFEST Zoho mapping
-  const zohoData = {
-    data: {
-      Name_First: formData.fullName,
-      Email: formData.email,
-      PhoneNumber: `${phoneCode}${formData.telephone}`, // ✅ single field (safe)
-      SingleLine: formData.interestedUnitType,
-      MultiLine: `Greenz Danube | ${formData.interestedUnitType}`,
-      DecisionBox: consentChecked
-    }
-  };
-
-  console.log("📤 ZOHO DATA →", zohoData);
-
-  try {
-    // 🔹 1. Google Sheets
-    const sheetPromise = fetch("/api/submit-enquiry", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(payload)
-    });
-
-    // 🔹 2. Zoho (IMPORTANT: await + log response)
-    const zohoResponse = await fetch(
-      "https://forms.zohopublic.com/drehomesrealestate/form/GreenzbyDanubeTafrax/submissions",
-      {
+    try {
+      // 🔹 1. Google Sheets (existing API)
+      const sheetPromise = fetch("/api/submit-enquiry", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify(zohoData)
-      }
-    );
+        body: JSON.stringify(payload)
+      });
 
-    const zohoResult = await zohoResponse.text();
+      // 🔹 2. Zoho Forms submission
+      const zohoPromise = fetch(
+        "https://forms.zohopublic.com/drehomesrealestate/form/GreenzbyDanubeTafrax/submissions",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            data: {
+              Name_First: formData.fullName,
+              Email: formData.email,
+              PhoneNumber_countrycode: phoneCode,
+              PhoneNumber: formData.telephone,
+              SingleLine: formData.interestedUnitType,
+              MultiLine: `Greenz Danube`,
+              DecisionBox: consentChecked
+            }
+          })
+        }
+      );
 
-    console.log("✅ ZOHO STATUS →", zohoResponse.status);
-    console.log("✅ ZOHO RESPONSE →", zohoResult);
+      // 🔥 Run both in parallel
+      await sheetPromise; // ensure Sheets always saves
+      await zohoPromise.catch(() => null); // don’t block if Zoho fails
 
-    // 🔥 Ensure Sheets completes
-    await sheetPromise;
+      // ✅ Redirect
+      window.location.href = "/thank-you";
 
-    // ✅ Redirect
-    window.location.href = "/thank-you";
-
-  } catch (error) {
-    console.error("❌ ERROR →", error);
-    alert("Error submitting form.");
-  } finally {
-    setIsSubmitting(false);
-  }
-};
+    } catch (error) {
+      console.error(error);
+      alert("Error submitting form.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <section id="Contact" className="relative bg-sky-50 pb-32">

@@ -1,5 +1,4 @@
 "use client";
-
 import { useState, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { X, Send } from "lucide-react";
@@ -19,28 +18,20 @@ export default function ContactModal({
   onClose,
   buttonText = "ENQUIRE NOW",
 }: FloorPlanEnquiryModalProps) {
-  const [enquiryData, setEnquiryData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-  });
-
+  const [enquiryData, setEnquiryData] = useState({ name: "", email: "", phone: "" });
   const [phoneCode, setPhoneCode] = useState<string | null>(null);
   const [isChecked, setIsChecked] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
-
   const modalRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (isOpen) {
       setEnquiryData({ name: "", email: "", phone: "" });
-
       const detectCountry = async () => {
         const code = await detectCountryCode();
         setPhoneCode(code);
       };
-
       detectCountry();
     }
   }, [isOpen]);
@@ -48,7 +39,6 @@ export default function ContactModal({
   useEffect(() => {
     if (isOpen && modalRef.current && cardRef.current) {
       document.body.style.overflow = "hidden";
-
       const ctx = gsap.context(() => {
         gsap.fromTo(modalRef.current, { opacity: 0 }, { opacity: 1, duration: 0.3 });
         gsap.fromTo(
@@ -57,7 +47,6 @@ export default function ContactModal({
           { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: "power3.out" }
         );
       }, modalRef.current);
-
       return () => ctx.revert();
     } else {
       document.body.style.overflow = "unset";
@@ -78,81 +67,72 @@ export default function ContactModal({
       email: enquiryData.email,
       phone: `${phoneCode}${enquiryData.phone}`,
       message: `Enquiry for: ${floorPlanTitle || "Floor Plan"}`,
-      consent: isChecked,
-    };
-
-    console.log("📤 FINAL PAYLOAD (Sheets) →", payload);
-
-    // ✅ Correct Zoho format
-    const zohoData = {
-      data: {
-        Name_First: enquiryData.name,
-        Email: enquiryData.email,
-        PhoneNumber: `${phoneCode}${enquiryData.phone}`,
-        MultiLine: `Enquiry for: Greenz Danube`,
-        DecisionBox: isChecked,
-      },
-    };
-
-    console.log(" ZOHO DATA →", zohoData);
+      consent: isChecked
+   };
 
     try {
-      // 🔹 1. Google Sheets
+      // 🔹 1. Google Sheets (existing API)
       const sheetPromise = fetch("/api/submit-enquiry", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/json"
         },
-        body: JSON.stringify(payload),
+        body: JSON.stringify(payload)
       });
 
-      // 🔹 2. Zoho
-      const zohoResponse = await fetch(
+      // 🔹 2. Zoho Forms submission
+      const zohoPromise = fetch(
         "https://forms.zohopublic.com/drehomesrealestate/form/GreenzbyDanubeTafrax/submissions",
         {
           method: "POST",
           headers: {
-            "Content-Type": "application/json",
+            "Content-Type": "application/json"
           },
-          body: JSON.stringify(zohoData),
+          body: JSON.stringify({
+            data: {
+              ...enquiryData,
+          phone: `${phoneCode}${enquiryData.phone}`,
+          message: `Enquiry for: ${floorPlanTitle || "Floor Plan"}`,
+          consent: isChecked,
+            }
+          })
         }
       );
 
-      const zohoResult = await zohoResponse.text();
-
-      console.log("✅ ZOHO STATUS →", zohoResponse.status);
-      console.log("✅ ZOHO RESPONSE →", zohoResult);
-
-      // 🔥 Ensure Sheets completes
-      await sheetPromise;
+      // 🔥 Run both in parallel
+      await sheetPromise; // ensure Sheets always saves
+      await zohoPromise.catch(() => null); // don’t block if Zoho fails
 
       // ✅ Redirect
       window.location.href = "/thank-you";
 
     } catch (error) {
-      console.error("❌ ERROR →", error);
+      console.error(error);
       alert("Error submitting form.");
     } finally {
       setIsSubmitting(false);
     }
   };
+  
 
   if (!isOpen) return null;
 
   return (
-    <div
-      className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-emerald-950/20 backdrop-blur-md"
-      onClick={onClose}
+    <div 
+      className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-emerald-950/20 backdrop-blur-md" 
+      onClick={onClose} 
       ref={modalRef}
     >
-      <div
-        className="relative w-full max-w-[420px] bg-white border border-emerald-100 shadow-[0_40px_80px_-15px_rgba(0,0,0,0.1)] overflow-hidden"
-        onClick={(e) => e.stopPropagation()}
+      <div 
+        className="relative w-full max-w-[420px] bg-white border border-emerald-100 shadow-[0_40px_80px_-15px_rgba(0,0,0,0.1)] overflow-hidden" 
+        onClick={(e) => e.stopPropagation()} 
         ref={cardRef}
       >
+        {/* Top Accent Bar */}
         <div className="h-1 w-full bg-emerald-500" />
 
-        <button
+        {/* Close Button */}
+        <button 
           className="absolute top-5 right-5 text-zinc-300 hover:text-emerald-500 transition-all z-20"
           onClick={onClose}
         >
@@ -160,6 +140,7 @@ export default function ContactModal({
         </button>
 
         <div className="p-8 md:p-10">
+          {/* Minimal Header */}
           <div className="text-center mb-10">
             <span className="text-[8px] font-bold tracking-[0.5em] text-emerald-500 uppercase block mb-2">
               Greenz By Danube
@@ -171,57 +152,70 @@ export default function ContactModal({
           </div>
 
           <form className="space-y-7" onSubmit={handleSubmit}>
-            {/* Name */}
-            <input
-              type="text"
-              placeholder="Full Name"
-              value={enquiryData.name}
-              onChange={(e) =>
-                setEnquiryData({ ...enquiryData, name: e.target.value })
-              }
-              required
-            />
-
-            {/* Email */}
-            <input
-              type="email"
-              placeholder="Email"
-              value={enquiryData.email}
-              onChange={(e) =>
-                setEnquiryData({ ...enquiryData, email: e.target.value })
-              }
-              required
-            />
-
-            {/* Phone */}
-            <div className="flex">
-              <CountryPhoneDropdown
-                value={phoneCode || "+971"}
-                onChange={setPhoneCode}
-              />
+            {/* Name Input */}
+            <div className="space-y-1 group">
+              <label className="text-[9px] uppercase tracking-widest font-black text-zinc-400 group-focus-within:text-emerald-500 transition-colors">Full Name</label>
               <input
-                type="tel"
-                value={enquiryData.phone}
-                onChange={(e) => handlePhoneChange(e.target.value)}
+                type="text"
+                className="w-full bg-transparent border-b border-zinc-100 py-1 focus:border-emerald-500 focus:outline-none transition-all text-sm font-light"
+                value={enquiryData.name}
+                onChange={(e) => setEnquiryData({ ...enquiryData, name: e.target.value })}
                 required
               />
             </div>
 
-            {/* Consent */}
-            <label>
+            {/* Email Input */}
+            <div className="space-y-1 group">
+              <label className="text-[9px] uppercase tracking-widest font-black text-zinc-400 group-focus-within:text-emerald-500 transition-colors">Email</label>
+              <input
+                type="email"
+                className="w-full bg-transparent border-b border-zinc-100 py-1 focus:border-emerald-500 focus:outline-none transition-all text-sm font-light"
+                value={enquiryData.email}
+                onChange={(e) => setEnquiryData({ ...enquiryData, email: e.target.value })}
+                required
+              />
+            </div>
+
+            {/* Phone Input */}
+            <div className="space-y-1 group">
+              <label className="text-[9px] uppercase tracking-widest font-black text-zinc-400 group-focus-within:text-emerald-500 transition-colors">Phone</label>
+              <div className="flex border-b border-zinc-100 group-focus-within:border-emerald-500 transition-all">
+                <CountryPhoneDropdown value={phoneCode || "+971"} onChange={setPhoneCode} />
+                <input
+                  type="tel"
+                  className="w-full bg-transparent py-1 pl-3 focus:outline-none text-sm"
+                  value={enquiryData.phone}
+                  inputMode="numeric"
+                  onChange={(e) => handlePhoneChange(e.target.value)}
+                  required
+                />
+              </div>
+            </div>
+
+            {/* Compact Consent */}
+            <div className="flex items-start gap-3 pt-2">
               <input
                 type="checkbox"
+                className="w-3.5 h-3.5 mt-0.5 accent-emerald-500 border-zinc-200 rounded-none"
                 checked={isChecked}
                 onChange={(e) => setIsChecked(e.target.checked)}
                 required
               />
-              I agree to be contacted
-            </label>
+              <span className="text-[8px] text-zinc-400 uppercase tracking-widest leading-relaxed">
+                I authorize company representatives to reach out via Call, SMS, Email, or WhatsApp.
+              </span>
+            </div>
 
-            <button type="submit" disabled={isSubmitting}>
+            <div className="bg-green-500">
+            <button 
+              type="submit" 
+              disabled={isSubmitting}
+              className="w-full text-white py-4 text-[10px] font-light uppercase hover:bg-emerald-600 transition-all duration-500 flex items-center justify-center gap-2 group"
+            >
               {isSubmitting ? "Submitting..." : "Submit"}
-              <Send size={12} />
+              <Send size={10} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </button>
+            </div>
           </form>
         </div>
       </div>
