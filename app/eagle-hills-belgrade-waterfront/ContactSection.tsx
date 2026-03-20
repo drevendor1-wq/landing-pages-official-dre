@@ -35,7 +35,7 @@ export default function ContactSection() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("/api/submit-form", {
+      const response = await fetch("/api/submit-enquiry", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -45,6 +45,7 @@ export default function ContactSection() {
           email: formData.email,
           phone: `${phoneCode}${formData.telephone}`,
           unitType: formData.interestedUnitType,
+          message: `Eagle Hills Belgrade Water Front`,
           consent: consentChecked,
         }),
       });
@@ -65,7 +66,7 @@ export default function ContactSection() {
     <section id="contact" className="damac_contact_section" ref={sectionRef}>
       <div className="container">
         <div className="damac_contact_header">
-          <h2 className="damac_contact_heading">Interested in Mercedes-Benz Places?</h2>
+          <h2 className="damac_contact_heading">Interested in Belgrade Water Front Marina?</h2>
           <p className="damac_contact_description">
            Get exclusive details, pricing, floor plans, and availability.
           </p>
@@ -139,26 +140,7 @@ export default function ContactSection() {
                 </div>
               </div>
 
-              <div className="damac_contact_form_group">
-                <label htmlFor="contact_unit_type">Interested Unit Type</label>
-                <select
-                  id="contact_unit_type"
-                  value={formData.interestedUnitType}
-                  onChange={(e) =>
-                    setFormData({ ...formData, interestedUnitType: e.target.value })
-                  }
-                  required
-                  className="damac_contact_select"
-                >
-                  <option value="">Select Unit Type*</option>
-                  <option value="Studio">Studio</option>
-                  <option value="1 Bedroom">1 Bedroom</option>
-                  <option value="2 Bedroom">2 Bedroom</option>
-                  <option value="3 Bedroom">3 Bedroom</option>
-                  <option value="4 Bedroom">4 Bedroom</option>
-                  <option value="5 Bedroom">5 Bedroom</option>
-                </select>
-              </div>
+             
             </div>
           </div>
 
@@ -181,7 +163,7 @@ export default function ContactSection() {
             className="damac_contact_submit_btn"
             disabled={isSubmitting}
           >
-            {isSubmitting ? "Sending..." : "SEND"}
+            {isSubmitting ? "Submitting..." : "SUBMIT"}
           </button>
         </form>
       </div>

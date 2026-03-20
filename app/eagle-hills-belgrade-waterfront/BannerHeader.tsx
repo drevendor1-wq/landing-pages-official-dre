@@ -85,7 +85,7 @@ export default function BannerHeader() {
               onClick={openEnquiryModal}
               className="damac_banner_header_button"
             >
-              INTSTANT CALL BACK
+              GET FREE CONSULTATION
             </button>
             <button 
               className="damac_banner_header_hamburger"
@@ -120,19 +120,13 @@ export default function BannerHeader() {
                 <a href="#" onClick={(e) => { e.preventDefault(); handleSectionClick("overview"); }}>OVERVIEW</a>
               </li>
               <li>
-                <a href="#" onClick={(e) => { e.preventDefault(); handleSectionClick("highlights"); }}>HIGHLIGHTS</a>
+                <a href="#" onClick={(e) => { e.preventDefault(); handleSectionClick("amenities"); }}>AMENITIES</a>
               </li>
               <li>
                 <a href="#" onClick={(e) => { e.preventDefault(); handleSectionClick("gallery"); }}>GALLERY</a>
               </li>
-              <li>
-                <a href="#" onClick={(e) => { e.preventDefault(); handleSectionClick("master-plan"); }}>MASTER PLAN</a>
-              </li>
-              <li>
-                <a href="#" onClick={(e) => { e.preventDefault(); handleSectionClick("amenities"); }}>AMENITIES</a>
-              </li>
-              <li>
-                <a href="#" onClick={(e) => { e.preventDefault(); handleSectionClick("location"); }}>LOCATION</a>
+               <li>
+                <a href="#" onClick={(e) => { e.preventDefault(); handleSectionClick("projects"); }}>PROPERTIES</a>
               </li>
               <li>
                 <a href="#" onClick={(e) => { e.preventDefault(); handleSectionClick("contact"); }}>CONTACT</a>
@@ -148,7 +142,7 @@ export default function BannerHeader() {
               }}
               className="damac_banner_drawer_button"
             >
-              INTSTANT CALL BACK
+              GET FREE CONSULTATION
             </button>
           </div>
         </div>
@@ -157,8 +151,8 @@ export default function BannerHeader() {
       <FloorPlanEnquiryModal
         isOpen={enquiryModalOpen}
         onClose={closeEnquiryModal}
-        floorPlanTitle="Mercedes-Benz Places | Binghatti City"
-        buttonText="INTSTANT CALL BACK"
+        floorPlanTitle="Eagle Hills Belgrade Water Front"
+        buttonText="GET FREE CONSULTATION"
       />
     </>
   );

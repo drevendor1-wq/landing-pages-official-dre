@@ -23,12 +23,12 @@ export default function DamacIslands2Page() {
     <div>
       <DamacIslandsBanner />
       <OverviewSection />
-      <HighlightsSection />
+      {/* <HighlightsSection /> */}
       <AmenitiesSection />
       {/* <PropertyCards /> */}
       <GallerySlider />
-      <FloorPlans />
-      <LocationAmenities />
+       <FloorPlans />
+      {/*<LocationAmenities /> */}
       <AboutDeveloperSection />
       <ContactSection />
       <Footer />

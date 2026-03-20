@@ -40,7 +40,7 @@ export default function StickyMobileButton() {
         <div className="damac_mobile_guide_button" onClick={handleButtonClick}>
           <div className="damac_mobile_guide_button_content">
             <div className="damac_mobile_guide_button_text">
-              <span className="damac_mobile_guide_button_text_fallback">understand potential growth</span>
+              <span className="damac_mobile_guide_button_text_fallback">Interested? Contact Now</span>
             </div>
             <div className="damac_mobile_guide_button_hand">
               <Image 
@@ -58,8 +58,8 @@ export default function StickyMobileButton() {
       <FloorPlanEnquiryModal
         isOpen={enquiryModalOpen}
         onClose={closeEnquiryModal}
-        floorPlanTitle="Mercedes-Benz Places | Binghatti City"
-        buttonText="understand potential growth"
+        floorPlanTitle="Eagle Hills Belgrade Water Front"
+        buttonText="Get in Touch"
       />
     </>
   );

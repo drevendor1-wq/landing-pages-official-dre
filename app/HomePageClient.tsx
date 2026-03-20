@@ -564,7 +564,7 @@ function HomePageContent() {
                 <h2 className="property-name">EMAAR MARASSI NORTH COAST</h2>
                 
                 {/* Feature Grid */}
-                <div className="property-features">
+                {/* <div className="property-features">
                   <div className="feature-item">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
@@ -598,7 +598,7 @@ function HomePageContent() {
                     </svg>
                     <span>EGYPT</span>
                   </div>
-                </div>
+                </div> */}
 
                 {/* Action Buttons */}
                 <div className="property-actions">
@@ -689,30 +689,25 @@ function HomePageContent() {
               </div>
             </div>
              
-             {/* EAGLE HILLS BELGRADE
+             {/* EAGLE HILLS BELGRADE */}
              <div className="property-card">
               
               <div className="property-image-wrapper">
                 <Image
-                  src="/images/nakheel-palm-central/GreenzCover.avif"
-                  alt="Palm Central at Dubai"
+                  src="/images/eagle-hills-belgrade/eagleHillsBanners.webp"
+                  alt="Eagle Hills Belgrade Serbia"
                   width={800}
                   height={500}
                   style={{ width: "100%", height: "350px", objectFit: "cover" }}
                 />
-                <div className="property-price-overlay">
-                  <div className="price-text">
-                    AED 3.5M
-                  </div>
-                </div>
               </div>
 
               
               <div className="property-details">
-                <h2 className="property-name">Greenz By Danube</h2>
+                <h2 className="property-name">EAGLE HILLS BELGRADE WATER FRONT</h2>
                 
               
-                <div className="property-features">
+                {/* <div className="property-features">
                   <div className="feature-item">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
@@ -748,7 +743,7 @@ function HomePageContent() {
                   </div>
                 </div>
 
-                
+                 */}
                 <div className="property-actions">
                   <button 
                     className="property-action-btn"
@@ -761,7 +756,8 @@ function HomePageContent() {
                   </Link>
                 </div>
               </div>
-            </div> */}
+            </div> 
+
 
           </div>
         </div>

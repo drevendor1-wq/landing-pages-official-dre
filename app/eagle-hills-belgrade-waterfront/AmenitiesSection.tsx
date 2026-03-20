@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, ReactElement } from "react";
-import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -12,161 +11,214 @@ if (typeof window !== "undefined") {
 interface Amenity {
   icon: ReactElement;
   name: string;
+  description: string;
 }
 
 const amenities: Amenity[] = [
   {
     icon: (
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M2 12h20M12 2v20" />
-        <circle cx="12" cy="12" r="8" />
-        <path d="M12 4v16M4 12h16" />
+      <svg width="50" height="50" viewBox="0 0 100 100" fill="none" stroke="#9E816C" strokeWidth="1.5">
+        <path d="M10 70 L90 70 L80 50 L20 50 Z" />
+        <path d="M40 50 L40 40 L65 40 L60 50" />
+        <path d="M50 40 L50 25" />
       </svg>
     ),
-    name: "Infinity swimming pool"
+    name: "Yacht club & Outdoor Pool",
+    description: "A contemporary yacht club, outdoor pool and loungers along the Sava River"
   },
   {
     icon: (
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M6 4h12v16H6z" />
-        <path d="M10 8h4M10 12h4M10 16h4" />
+      <svg width="50" height="50" viewBox="0 0 100 100" fill="none" stroke="#9E816C" strokeWidth="1.5">
+        <circle cx="50" cy="30" r="10" />
+        <path d="M50 40 V90 M30 60 H70" />
+        <path d="M30 60 Q30 85 50 85 Q70 85 70 60" />
       </svg>
     ),
-    name: "Fully equipped gymnasium"
+    name: "City Marina",
+    description: "The largest city marina and a new hub of life on the river"
   },
   {
     icon: (
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <circle cx="12" cy="12" r="10" />
-        <path d="M12 2v4M12 18v4M2 12h4M18 12h4" />
+      <svg width="50" height="50" viewBox="0 0 100 100" fill="none" stroke="#9E816C" strokeWidth="1.5">
+        <circle cx="50" cy="45" r="35" />
+        <circle cx="50" cy="45" r="5" />
+        <path d="M50 10 V80 M15 45 H85 M50 80 L40 95 H60 L50 80" />
+        <path d="M25 20 L75 70 M75 20 L25 70" />
       </svg>
     ),
-    name: "Luxury spa & wellness zones"
+    name: "Belgrade Eye",
+    description: "PA panoramic wheel – a new city landmark and tourist attraction"
   },
   {
     icon: (
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M12 2L2 7l10 5 10-5-10-5z" />
-        <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
+      <svg width="50" height="50" viewBox="0 0 100 100" fill="none" stroke="#9E816C" strokeWidth="1.5">
+        <path d="M30 10 Q60 30 30 50 Q0 70 30 90" strokeDasharray="3 3" />
+        <path d="M70 10 Q40 30 70 50 Q100 70 70 90" />
+        <circle cx="70" cy="15" r="4" />
       </svg>
     ),
-    name: "Landscaped leisure areas"
+    name: "Green Corridor",
+    description: "A linear park connecting the riverfront, parks and urban districts"
   },
   {
     icon: (
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-        <circle cx="12" cy="10" r="3" />
+      <svg width="50" height="50" viewBox="0 0 100 100" fill="none" stroke="#9E816C" strokeWidth="1.5">
+        <path d="M30 40 Q30 20 50 20 Q70 20 70 40 Q70 60 50 80 Q30 60 30 40 Z" />
+        <path d="M40 45 Q50 35 60 45" />
+        <path d="M40 55 Q50 65 60 55" />
       </svg>
     ),
-    name: "Concierge & valet services"
+    name: "Opera & Cultural District",
+    description: "An opera house in the restored Hall 1 and a new center of cultural events"
   },
   {
     icon: (
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <rect x="3" y="3" width="18" height="18" rx="2" />
-        <path d="M3 9h18M9 3v18" />
+      <svg width="50" height="50" viewBox="0 0 100 100" fill="none" stroke="#9E816C" strokeWidth="1.5">
+        <rect x="40" y="10" width="20" height="70" />
+        <path d="M40 25 H60 M40 40 H60 M40 55 H60 M40 70 H60" />
+        <path d="M30 80 H70" />
       </svg>
     ),
-    name: "Dedicated parking"
-  },
-  {
-    icon: (
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M12 2v20M8 6l4-4 4 4M8 18l4 4 4-4" />
-      </svg>
-    ),
-    name: "High-speed elevators"
-  },
-  {
-    icon: (
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <rect x="3" y="4" width="18" height="16" rx="2" />
-        <path d="M3 10h18M9 4v16" />
-      </svg>
-    ),
-    name: "Residents' lounge"
-  },
-  {
-    icon: (
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-        <path d="M12 8v4M12 16h.01" />
-      </svg>
-    ),
-    name: "24/7 security & surveillance"
+    name: "New Architectural Icon",
+    description: "A mixed-use tower rising approximately 120 meters"
   }
 ];
 
-export default function AmenitiesSection() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const bgImageRef = useRef<HTMLDivElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
+export default function PremiumAmenities() {
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (sectionRef.current && bgImageRef.current && contentRef.current) {
-      const ctx = gsap.context(() => {
-        // Animate content on scroll
-        gsap.from(contentRef.current!.children, {
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 80%",
-            toggleActions: "play none none reverse",
-          },
-          y: 50,
-          opacity: 0,
-          duration: 1,
-          stagger: 0.1,
-          ease: "power3.out",
-        });
+    const ctx = gsap.context(() => {
+      // Reveal the title first
+      gsap.from(".premium_title", {
+        y: 30,
+        opacity: 0,
+        duration: 1.2,
+        ease: "power4.out",
+        scrollTrigger: {
+          trigger: ".premium_title",
+          start: "top 90%",
+        }
+      });
 
-        ScrollTrigger.refresh();
-      }, sectionRef.current);
+      // Stagger reveal the items
+      gsap.from(".premium_item", {
+        y: 60,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.15,
+        ease: "expo.out",
+        scrollTrigger: {
+          trigger: ".premium_grid",
+          start: "top 80%",
+        }
+      });
+    }, containerRef);
 
-      return () => ctx.revert();
-    }
+    return () => ctx.revert();
   }, []);
 
   return (
-    <section id="amenities" className="damac_amenities_section" ref={sectionRef}>
-      {/* Background Image with Blur */}
-      <div className="damac_amenities_bg" ref={bgImageRef}>
-        <Image
-          src="/images/mercedes-benz/gallery-2.webp"
-          alt="Amenities Background"
-          fill
-          className="damac_amenities_bg_image"
-          style={{ objectFit: "cover" }}
-          priority
-        />
-        {/* Dark Overlay */}
-        <div className="damac_amenities_overlay"></div>
-      </div>
+    <section 
+      id="amenities"
+      ref={containerRef}
+      style={{ 
+        padding: "120px 0", 
+        backgroundColor: "#FCFBFA", 
+        fontFamily: "'Inter', sans-serif",
+        overflow: "hidden" 
+      }}
+    >
+      <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "0 40px" }}>
+        
+        {/* Elegant Minimal Header */}
+        <div style={{ textAlign: "center", marginBottom: "100px" }}>
+          <h2 className="premium_title" style={{ 
+            fontSize: "clamp(2rem, 5vw, 2.75rem)", 
+            fontWeight: "300", 
+            color: "#1A1A1A",
+            letterSpacing: "0.1em",
+            textTransform: "uppercase"
+          }}>
+            A New <span style={{ fontWeight: "600" }}>Riverfront</span> Experience
+          </h2>
+          <div style={{ 
+            width: "50px", 
+            height: "1px", 
+            backgroundColor: "#9E816C", 
+            margin: "2px auto" 
+          }} />
+        </div>
 
-      {/* Content */}
-      <div className="damac_amenities_content" ref={contentRef}>
-        <div className="container">
-   
+        {/* The Grid */}
+        <div className="premium_grid" style={{ 
+          display: "grid", 
+          gridTemplateColumns: "repeat(6, 1fr)", 
+          gap: "20px",
+          "@media (max-width: 1024px)": { gridTemplateColumns: "repeat(3, 1fr)" },
+          "@media (max-width: 640px)": { gridTemplateColumns: "repeat(1, 1fr)" }
+        } as any}>
           
-          {/* Header */}
-          <div className="damac_amenities_header">
-            <h2 className="damac_amenities_title">AMENITIES</h2>
-            <p className="damac_amenities_question">Residents enjoy a curated selection of luxury lifestyle amenities, designed for comfort, wellness, and exclusivity.</p>
-          </div>
-
-          {/* Amenities Grid */}
-          <div className="damac_amenities_grid">
-            {amenities.map((amenity, index) => (
-              <div key={index} className="damac_amenity_item">
-                <div className="damac_amenity_icon_wrapper">
-                  {amenity.icon}
-                </div>
-                <span className="damac_amenity_name">{amenity.name}</span>
+          {amenities.map((item, idx) => (
+            <div 
+              key={idx} 
+              className="premium_item"
+              style={{ 
+                textAlign: "center",
+                padding: "20px",
+                transition: "transform 0.4s ease"
+              }}
+            >
+              {/* Icon Container with subtle scale hover */}
+              <div style={{ 
+                marginBottom: "30px", 
+                display: "inline-block",
+                transition: "transform 0.3s ease",
+              }}>
+                {item.icon}
               </div>
-            ))}
-          </div>
+
+              <h3 style={{ 
+                fontSize: "1rem", 
+                fontWeight: "600", 
+                color: "#1A1A1A", 
+                textTransform: "uppercase",
+                letterSpacing: "0.05em",
+                marginBottom: "15px",
+                minHeight: "3em",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center"
+              }}>
+                {item.name}
+              </h3>
+
+              <p style={{ 
+                fontSize: "0.85rem", 
+                color: "#6B6B6B", 
+                lineHeight: "1.7",
+                fontWeight: "400",
+                margin: "0 auto",
+                maxWidth: "180px"
+              }}>
+                {item.description}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
+
+      <style jsx>{`
+        .premium_item:hover {
+          transform: translateY(-10px);
+        }
+        @media (max-width: 1024px) {
+          .premium_grid { grid-template-columns: repeat(3, 1fr) !important; row-gap: 60px !important; }
+        }
+        @media (max-width: 640px) {
+          .premium_grid { grid-template-columns: repeat(1, 1fr) !important; }
+        }
+      `}</style>
     </section>
   );
 }

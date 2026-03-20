@@ -26,14 +26,14 @@ export default function AboutDeveloperSection() {
       <div className="container">
         <div className="damac_about_developer_main_wrapper">
           <div className="damac_about_developer_background" ref={backgroundRef}>
-            <Image src="/images/mercedes-benz/banner.webp" alt="About Developer Background" width={1000} height={1000} />
+            <Image src="/images/eagle-hills-belgrade/EagleHillsGallery10.webp" alt="About Developer Background" width={1000} height={1000} />
           </div>
           <div className="damac_about_developer_content">
             <div className="damac_about_developer_text_wrapper" ref={contentRef}>
               <p className="damac_about_developer_subheading">ABOUT THE DEVELOPER</p>
-              <h2 className="damac_about_developer_heading">BINGHATTI DEVELOPERS</h2>
+              <h2 className="damac_about_developer_heading">EAGLE HILLS</h2>
               <p className="damac_about_developer_description">
-                Binghatti Developers is one of the UAE's most recognized real estate brands, known for delivering architecturally distinctive projects with strong investment value. With a growing portfolio across Dubai, Binghatti is renowned for:
+                Eagle Hills Properties is a real estate investment and development company headquartered in Abu Dhabi, United Arab Emirates. Founded in 2014, the company is involved in developing large-scale, mixed‑use master‑planned communities in the Middle East, North Africa, and Europe.
               </p>
               <div className="damac_about_developer_list">
                 {developerPoints.map((point, index) => (
@@ -46,7 +46,7 @@ export default function AboutDeveloperSection() {
                 ))}
               </div>
               <p className="damac_about_developer_footer">
-                Mercedes-Benz Places represents a bold step in redefining branded luxury real estate in the region.
+                Belgrade Water Front represents a bold step in redefining branded luxury real estate in the region.
               </p>
             </div>
           </div>

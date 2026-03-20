@@ -16,12 +16,13 @@ interface GalleryImage {
 }
 
 const galleryImages: GalleryImage[] = [
-  { src: "/images/mercedes-benz/gallery-1.webp", alt: "Gallery Image 1" },
-  { src: "/images/mercedes-benz/gallery-2.webp", alt: "Gallery Image 2" },
-  { src: "/images/mercedes-benz/gallery-3.webp", alt: "Gallery Image 3" },
-  { src: "/images/mercedes-benz/gallery-4.webp", alt: "Gallery Image 4" },
-  { src: "/images/mercedes-benz/gallery-5.webp", alt: "Gallery Image 5" },
-  { src: "/images/mercedes-benz/gallery-6.webp", alt: "Gallery Image 6" },
+  { src: "/images/eagle-hills-belgrade/EagleHillsGallery1.webp", alt: "Eagle Hills Belgrade WaterFront" },
+   { src: "/images/eagle-hills-belgrade/eagleHillsBanners.webp", alt: "Eagle Hills Belgrade WaterFront" },
+  { src: "/images/eagle-hills-belgrade/EagleHillsGallery2.webp", alt: "Eagle Hills Belgrade WaterFront" },
+  { src: "/images/eagle-hills-belgrade/EagleHillsGallery3.webp", alt: "Eagle Hills Belgrade WaterFront" },
+  { src: "/images/eagle-hills-belgrade/EagleHillsGallery6.webp", alt: "Eagle Hills Belgrade WaterFront" },
+  { src: "/images/eagle-hills-belgrade/EagleHillsGallery7.webp", alt: "Eagle Hills Belgrade WaterFront" },
+  { src: "/images/eagle-hills-belgrade/EagleHillsGallery10.webp", alt: "Eagle Hills Belgrade WaterFront" },
 ];
 
 export default function GallerySlider() {
