@@ -119,7 +119,7 @@ export default function GallerySlider() {
         <div className="container">
           <div className="damac_gallery_header" ref={headerRef}>
             <h2 className="damac_gallery_heading">EXPLORE OUR COLLECTION</h2>
-            <p className="damac_gallery_tagline">Explore the essence of Mercedes-Benz inspired livingthrough stunning visuals</p>
+            <p className="damac_gallery_tagline">Explore the essence of Belgrade Water Front inspired livingthrough stunning visuals</p>
           </div>
 
           <div className="damac_gallery_slider_wrapper" ref={sliderRef}>
