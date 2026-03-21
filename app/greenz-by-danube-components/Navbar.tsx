@@ -10,6 +10,13 @@ const Navbar = () => {
   const [enquiryModalOpen, setEnquiryModalOpen] = useState(false);
   const [buttonText, setButtonText] = useState("");
 
+  // Professional URL-encoded message
+  const whatsappNumber = "971527543245";
+  const whatsappMessage = encodeURIComponent(
+    "Hello, I am interested in Greenz by Danube. Please provide more information regarding the project and available units."
+  );
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+
   const openEnquiryModal = (text: string = "Request Brochure") => {
     setButtonText(text);
     setEnquiryModalOpen(true);
@@ -33,7 +40,6 @@ const Navbar = () => {
 
   const scrollToSection = (id: string) => {
     setIsOpen(false);
-
     setTimeout(() => {
       const element = document.getElementById(id);
       if (element) {
@@ -55,7 +61,7 @@ const Navbar = () => {
           >
             <Image
               src="/images/DRE_BLACK_LOGO.png"
-              alt="Bay Villas Logo"
+              alt="Logo"
               width={40}
               height={20}
               priority
@@ -74,7 +80,6 @@ const Navbar = () => {
                 <span className="absolute -bottom-1 left-0 w-0 h-[1.5px] bg-emerald-600 transition-all group-hover:w-full"></span>
               </button>
             ))}
-            
             
             <div className='bg-green-500'>
               <button 
@@ -132,12 +137,13 @@ const Navbar = () => {
         buttonText={buttonText}
       />
 
-      {/* WhatsApp Button */}
+      {/* WhatsApp Button with Auto-Message */}
       <a
-        href="https://wa.me/971527543243"
+        href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-all duration-300"
+        className="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110 active:scale-95"
+        aria-label="Chat on WhatsApp"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

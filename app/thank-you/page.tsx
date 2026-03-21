@@ -52,7 +52,7 @@ export default async function ThankYouPage() {
               We appreciate your interest in this project. One of our
               representatives will reach out to you within 24 hours.
             </p>
-            <div className="thank_you_actions">
+            {/* <div className="thank_you_actions">
               <Link href="/" className="thank_you_button primary">
                 Back to Home
               </Link>
@@ -64,7 +64,7 @@ export default async function ThankYouPage() {
               >
                 Contact via WhatsApp
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>

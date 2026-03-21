@@ -832,7 +832,7 @@ function HomePageContent() {
               
               <div className="property-image-wrapper">
                 <Image
-                  src="/images/damac-nine-tower/DamacTowerNineGallery2.jpg"
+                  src="/images/tbilisi-water-front/3.png"
                   alt="Eagle Hills Belgrade Serbia"
                   width={800}
                   height={500}
