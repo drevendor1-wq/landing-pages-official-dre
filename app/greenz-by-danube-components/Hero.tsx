@@ -76,7 +76,7 @@ const Hero = () => {
             </div>
 
             <button
-              onClick={() => openEnquiryModal("Call Back From Nakheel Expert")}
+              onClick={() => openEnquiryModal("Call Back From Danube Expert")}
               className="group border border-white/40 p-6 flex items-center justify-center gap-3 hover:border-emerald-500 transition-all"
             >
               <Phone size={14} className="text-emerald-400" />
