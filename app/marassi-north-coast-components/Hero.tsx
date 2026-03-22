@@ -1,141 +1,64 @@
 "use client"
-import { motion } from 'motion/react';
-import { ArrowUpRight, Phone } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { ArrowUpRight, ShieldCheck } from 'lucide-react';
 import ContactModal from "./ContactModal";
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 const Hero = () => {
   const [enquiryModalOpen, setEnquiryModalOpen] = useState(false);
   const [buttonText, setButtonText] = useState("");
 
-  const openEnquiryModal = (text: string = "Request Brochure") => {
+  const openEnquiryModal = (text: string) => {
     setButtonText(text);
     setEnquiryModalOpen(true);
-    document.body.style.overflow = "hidden";
   };
-
-  const closeEnquiryModal = () => {
-    setEnquiryModalOpen(false);
-    document.body.style.overflow = "unset";
-  };
-
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (enquiryModalOpen && e.key === "Escape") closeEnquiryModal();
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [enquiryModalOpen]);
 
   return (
     <>
-      <section className="relative min-h-screen overflow-hidden bg-black">
-
-        {/* Background */}
-        <motion.img
-          initial={{ scale: 1.2 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 8, ease: "easeOut" }}
-          src="https://www.emaarmisr.com/wp-content/uploads/2025/10/Emaar-Misr-Communities-Marassi-North-Coast-6.jpg"
-          className="absolute inset-0 w-full h-full object-cover"
-          alt="Maraasi"
+      <section className="relative h-screen bg-black overflow-hidden flex items-end pb-20 px-6 md:px-20">
+        <video 
+          autoPlay loop muted playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-50  hover:grayscale-0 transition-all duration-1000"
+          src="https://marassi.eg/wp-content/uploads/2025/09/out_2025-09-09-16-51-30_1.mp4#t=0,54" // Placeholder link
         />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
 
-        {/* Dark Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black/90 pointer-events-none" />
+        <div className="relative z-10 w-full grid grid-cols-1 md:grid-cols-12 gap-10 items-end">
+          <div className="md:col-span-8">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              className="flex items-center gap-3 text-emerald-400 mb-6"
+            >
+            </motion.div>
 
-        {/* Moving Light Sweep */}
-        <motion.div
-          initial={{ x: "-100%" }}
-          animate={{ x: "100%" }}
-          transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
-          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none"
-        />
+            <motion.h1 
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-white font-serif"
+            >
+              <span className="block text-2xl md:text-4xl text-white/40 tracking-widest uppercase">Emaar</span>
+              <span className="block text-4xl md:text-[12rem] font-bold leading-none -ml-1 md:-ml-2">CAIRO GATE</span>
+            </motion.h1>
+          </div>
 
-        {/* Grain Texture */}
-        <div
-          className="absolute inset-0 opacity-[0.06] mix-blend-overlay pointer-events-none"
-          style={{
-            backgroundImage:
-              "url('https://grainy-gradients.vercel.app/noise.svg')"
-          }}
-        />
-
-        {/* Content */}
-        <div className="relative z-10 flex items-center min-h-screen px-6 md:px-20">
-
-          {/* Glass Panel */}
-          <motion.div
-            initial={{ opacity: 0, y: 60 }}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2 }}
-            className="relative backdrop-blur-2xl bg-white/[0.08] border border-white/20 p-8 md:p-16 rounded-3xl max-w-xl shadow-[0_20px_80px_rgba(0,0,0,0.6)]"
+            transition={{ delay: 0.5 }}
+            className="md:col-span-4 space-y-4"
           >
-
-            {/* Glow Accent */}
-            <div className="absolute -inset-[1px] rounded-3xl bg-gradient-to-r from-emerald-500/20 via-transparent to-emerald-500/20 blur-xl opacity-70 pointer-events-none" />
-
-            {/* Title */}
-            <h1 className="relative font-serif leading-[0.78] tracking-tight text-white">
-              
-              <span className="block text-3xl md:text-5xl tracking-[0.2em] text-white/60">
-                EMAAR
-              </span>
-
-              <span className="block text-6xl md:text-[8rem] font-light text-emerald-400 mt-3">
-                MARASSI
-              </span>
-
-            </h1>
-
-            {/* Divider */}
-            <div className="w-20 h-[1px] bg-gradient-to-r from-transparent via-emerald-400 to-transparent my-8" />
-
-            {/* Buttons */}
-            <div className="flex flex-col gap-4">
-
-              {/* Primary CTA */}
-              <button
-                onClick={() => openEnquiryModal("Request Brochure")}
-                className="relative group overflow-hidden p-5 flex items-center justify-between text-white border border-white/20"
-              >
-                <span className="relative z-10 text-[10px] font-bold tracking-[0.2em] uppercase">
-                  Request Brochure
-                </span>
-
-                <ArrowUpRight
-                  size={20}
-                  className="relative z-10 group-hover:translate-x-1 group-hover:-translate-y-1 transition"
-                />
-
-                {/* Shine Effect */}
-                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition duration-700 pointer-events-none" />
-              </button>
-
-              {/* Secondary CTA */}
-              <button
-                onClick={() => openEnquiryModal("Request Call Back")}
-                className="group border border-white/30 p-5 flex items-center justify-center gap-3 text-white hover:border-emerald-400 transition"
-              >
-                <Phone size={14} className="text-emerald-400" />
-
-                <span className="text-[10px] font-bold tracking-[0.2em] uppercase">
-                  Request Call Back
-                </span>
-              </button>
-
-            </div>
+            <button 
+              onClick={() => openEnquiryModal("Request Brochure")}
+              className="w-full bg-white/5 hover:bg-white/10 backdrop-blur-md border border-white/10 text-white font-black p-6 tracking-[0.2em] uppercase transition-all"
+            >
+              Request Brochure
+            </button>
           </motion.div>
         </div>
       </section>
 
-      {/* Modal */}
-      <ContactModal
-        isOpen={enquiryModalOpen}
-        onClose={closeEnquiryModal}
-        floorPlanTitle="Enquiry For: MARASSI NORTH COAST EGYPT"
-        buttonText={buttonText}
-      />
+      <ContactModal isOpen={enquiryModalOpen} onClose={() => setEnquiryModalOpen(false)} floorPlanTitle="Enquiry For: EMAAR CAIRO GATE EGYPT" buttonText={buttonText} />
     </>
   );
 };

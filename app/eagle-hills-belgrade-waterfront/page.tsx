@@ -32,7 +32,7 @@ export default function DamacIslands2Page() {
       <AboutDeveloperSection />
       <ContactSection />
       <Footer />
-      <StickyMobileButton />
+      {/* <StickyMobileButton /> */}
     </div>
   );
 }

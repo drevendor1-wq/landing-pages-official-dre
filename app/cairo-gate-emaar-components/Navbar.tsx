@@ -9,13 +9,14 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [enquiryModalOpen, setEnquiryModalOpen] = useState(false);
   const [buttonText, setButtonText] = useState("");
+
   const whatsappNumber = "971527543245";
   const whatsappMessage = encodeURIComponent(
-    "Hello, I am interested in Emaar Marassi North Coast Project. Please provide more information regarding the project and available units."
+    "Hello, I am interested in EMAAR CAIRO GATE Project. Please provide more information regarding the project and available units."
   );
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
   
-  const openEnquiryModal = (text: string = "Request Brochure") => {
+    const openEnquiryModal = (text: string = "Request Brochure") => {
       setButtonText(text);
       setEnquiryModalOpen(true);
       document.body.style.overflow = "hidden";
@@ -84,7 +85,7 @@ const Navbar = () => {
           
           <div className='bg-green-500'>
           <button 
-            onClick={() => openEnquiryModal(" GET FREE CONSULTATION")}
+            onClick={() => openEnquiryModal("GET FREE CONSULTATION")}
             className="text-white px-8 py-3 text-xs uppercase tracking-widest font-bold hover:bg-emerald-700 transition-all duration-300 rounded-sm"
           >
             GET FREE CONSULTATION
@@ -121,10 +122,10 @@ const Navbar = () => {
               ))}
               <div className='bg-green-500 text-center'>
               <button 
-                onClick={() => openEnquiryModal("Request Brochure")}
+                onClick={() => openEnquiryModal("GET FREE CONSULTATION")}
                 className="text-white px-6 py-4 font-bold uppercase tracking-widest text-sm"
               >
-                Request Brochure
+                GET FREE CONSULTATION
               </button>
               </div>
             </div>
@@ -135,7 +136,7 @@ const Navbar = () => {
     <ContactModal
             isOpen={enquiryModalOpen}
             onClose={closeEnquiryModal}
-            floorPlanTitle="Enquiry For: MARASSI NORTH COAST EGYPT"
+            floorPlanTitle="Enquiry For: EMAAR CAIRO GATE EGYPT"
             buttonText={buttonText}
           />
           <a

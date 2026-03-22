@@ -47,7 +47,7 @@ const NakheelFixedMobileButton = () => {
         ...data,
         phone: `${phoneCode}${data.phone}`,
         consent: isChecked,
-        message: "Enquiry for Bay Villas by Nakheel",
+        message: "Enquiry for Emaar Cairo Gate Egypt",
       };
 
       const response = await fetch("/api/submit-enquiry", {
@@ -121,7 +121,7 @@ const NakheelFixedMobileButton = () => {
                     Exclusive Access
                   </span>
                   <h2 className="text-3xl font-serif text-black tracking-tighter leading-none">
-                    Explore Pricing & Availability<br /><span className="text-green-500 font-light text-[19px]">Marassi North Coast By EMAAR</span>
+                    Explore Pricing & Availability<br /><span className="text-green-500 font-light text-[19px]">Cairo Gate By EMAAR</span>
                   </h2>
                 </div>
 
