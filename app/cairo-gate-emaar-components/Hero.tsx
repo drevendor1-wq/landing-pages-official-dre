@@ -31,7 +31,7 @@ export default function HeroV2() {
           className="absolute inset-0 w-full h-full object-cover"
         />
 
-        <div className="absolute inset-0 bg-black/70" />
+        <div className="absolute inset-0 bg-black/60" />
 
         {/* LEFT EMPTY (Luxury spacing) */}
         <div />
