@@ -37,11 +37,14 @@ export default function OverviewSection() {
             </div>
             <div className="damac_overview_text">
               <p>
-                Belgrade Waterfront represents the next phase of Belgrade’s development and a new chapter of Serbia’s capital. Located on the right bank of the Sava River, between Ada Bridge and the revitalized pedestrian bridge, this new urban district redefines the city’s relationship with the river.
+                Riga Waterfront development in Latvia is the largest private master-planned project in Northern Europe.
               </p>
               
               <p>
-              Welcome to a place where mornings begin with river views, days unfold in greenery and leisurely walks, and evenings are spent in an atmosphere reminiscent of the world’s most renowned marinas.
+              Spanning 5 km along the historic port, it features 8,000 residential units, 1,000 hotel rooms, world-class shopping, fine dining, and more.
+              </p>
+              <p>
+                Developed by Eagle Hills, a subsidiary of Emaar—the renowned developer behind Burj Khalifa and Downtown Dubai.
               </p>
             </div>
             <button className="damac_overview_button" onClick={openEnquiryModal}>
@@ -55,7 +58,7 @@ export default function OverviewSection() {
         isOpen={isEnquiryModalOpen}
         onClose={closeEnquiryModal}
         floorPlanTitle="Eagle Hills Belgrade Waterfront"
-        buttonText="Learn More About the Project"
+        buttonText="Request Information"
       />
     </>
   );

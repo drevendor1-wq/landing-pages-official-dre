@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, ReactElement } from "react";
+import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -9,214 +9,171 @@ if (typeof window !== "undefined") {
 }
 
 interface Amenity {
-  icon: ReactElement;
   name: string;
-  description: string;
+  icon: React.ReactNode;
 }
 
 const amenities: Amenity[] = [
-  {
-    icon: (
-      <svg width="50" height="50" viewBox="0 0 100 100" fill="none" stroke="#9E816C" strokeWidth="1.5">
-        <path d="M10 70 L90 70 L80 50 L20 50 Z" />
-        <path d="M40 50 L40 40 L65 40 L60 50" />
-        <path d="M50 40 L50 25" />
-      </svg>
-    ),
-    name: "Yacht club & Outdoor Pool",
-    description: "A contemporary yacht club, outdoor pool and loungers along the Sava River"
-  },
-  {
-    icon: (
-      <svg width="50" height="50" viewBox="0 0 100 100" fill="none" stroke="#9E816C" strokeWidth="1.5">
-        <circle cx="50" cy="30" r="10" />
-        <path d="M50 40 V90 M30 60 H70" />
-        <path d="M30 60 Q30 85 50 85 Q70 85 70 60" />
-      </svg>
-    ),
-    name: "City Marina",
-    description: "The largest city marina and a new hub of life on the river"
-  },
-  {
-    icon: (
-      <svg width="50" height="50" viewBox="0 0 100 100" fill="none" stroke="#9E816C" strokeWidth="1.5">
-        <circle cx="50" cy="45" r="35" />
-        <circle cx="50" cy="45" r="5" />
-        <path d="M50 10 V80 M15 45 H85 M50 80 L40 95 H60 L50 80" />
-        <path d="M25 20 L75 70 M75 20 L25 70" />
-      </svg>
-    ),
-    name: "Belgrade Eye",
-    description: "PA panoramic wheel – a new city landmark and tourist attraction"
-  },
-  {
-    icon: (
-      <svg width="50" height="50" viewBox="0 0 100 100" fill="none" stroke="#9E816C" strokeWidth="1.5">
-        <path d="M30 10 Q60 30 30 50 Q0 70 30 90" strokeDasharray="3 3" />
-        <path d="M70 10 Q40 30 70 50 Q100 70 70 90" />
-        <circle cx="70" cy="15" r="4" />
-      </svg>
-    ),
-    name: "Green Corridor",
-    description: "A linear park connecting the riverfront, parks and urban districts"
-  },
-  {
-    icon: (
-      <svg width="50" height="50" viewBox="0 0 100 100" fill="none" stroke="#9E816C" strokeWidth="1.5">
-        <path d="M30 40 Q30 20 50 20 Q70 20 70 40 Q70 60 50 80 Q30 60 30 40 Z" />
-        <path d="M40 45 Q50 35 60 45" />
-        <path d="M40 55 Q50 65 60 55" />
-      </svg>
-    ),
-    name: "Opera & Cultural District",
-    description: "An opera house in the restored Hall 1 and a new center of cultural events"
-  },
-  {
-    icon: (
-      <svg width="50" height="50" viewBox="0 0 100 100" fill="none" stroke="#9E816C" strokeWidth="1.5">
-        <rect x="40" y="10" width="20" height="70" />
-        <path d="M40 25 H60 M40 40 H60 M40 55 H60 M40 70 H60" />
-        <path d="M30 80 H70" />
-      </svg>
-    ),
-    name: "New Architectural Icon",
-    description: "A mixed-use tower rising approximately 120 meters"
-  }
+  { name: "City Center Convenience", icon: <path d="M50 10c-15 0-27 12-27 27 0 20 27 53 27 53s27-33 27-53c0-15-12-27-27-27zm0 37a10 10 0 110-20 10 10 0 010 20z" /> },
+  { name: "Luxury Residentials", icon: <path d="M20 50h15m30 0h15M35 30l15-15 15 15M35 70l15 15 15-15M50 15v70" /> },
+  { name: "History & Architecture", icon: <path d="M20 80V40h15v10h10V30h10v20h10V40h15v40H20z M35 80V65h30v15" /> },
+  { name: "Waterfront Promenade", icon: <path d="M20 40c15-10 45 10 60 0M20 60c15-10 45 10 60 0M20 80c15-10 45 10 60 0" /> },
+  { name: "World-Class Marina", icon: <path d="M30 40l20-20 20 20v30H30z M20 70h60M40 85h20" /> },
+  { name: "Restaurants & Bars", icon: <path d="M30 40c0 20 10 35 20 35s20-15 20-35H30z M45 15l-5 25M55 15l5 25" /> },
+  { name: "Luxury Shopping", icon: <path d="M30 35V25c0-11 9-20 20-20s20 9 20 20v10M25 35h50l5 50H20l5-50z" /> },
+  { name: "Luxury Hotels", icon: <path d="M25 85V15h40l10 10v60H25z M40 35h5M40 50h5M40 65h5" /> },
+  { name: "Yacht Club", icon: <path d="M20 75l10-25h40l10 25H20z M50 50V25M50 35h15" /> },
+  { name: "Art & Entertainment", icon: <path d="M30 65l10-10 15 15 10-10 5 5" /> },
+  { name: "Museum", icon: <path d="M50 15L20 35v10h60V35L50 15z M30 45v30M43 45v30M57 45v30M70 45v30M20 75h60" /> },
+  { name: "Urban Beach", icon: <path d="M40 75a30 30 0 0060 0M50 75L70 35M60 45h20" /> },
+  { name: "Smart City & Tech", icon: <path d="M50 20v10M80 50h-10M20 50h10M50 80v-10M30 30l7 7M70 30l-7 7M30 70l7-7M70 70l-7-7" /> },
+  { name: "Security & Sustainability", icon: <path d="M50 85c-20-10-20-40-20-40s10-10 20-10 20 10 20 10 0 30-20 40z M50 35s5 10-5 20" /> },
+  { name: "Exclusive Amenities", icon: <path d="M30 40h40" /> },
+  { name: "Premium Services", icon: <path d="M20 80h60M30 80V40h40v40" /> },
 ];
 
-export default function PremiumAmenities() {
+export default function LuxuryAmenityGrid() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Reveal the title first
-      gsap.from(".premium_title", {
-        y: 30,
-        opacity: 0,
-        duration: 1.2,
-        ease: "power4.out",
-        scrollTrigger: {
-          trigger: ".premium_title",
-          start: "top 90%",
-        }
-      });
-
-      // Stagger reveal the items
-      gsap.from(".premium_item", {
-        y: 60,
+      gsap.from(".amenity-card", {
+        y: 40,
         opacity: 0,
         duration: 1,
-        stagger: 0.15,
+        stagger: {
+          each: 0.1,
+          grid: "auto",
+        },
         ease: "expo.out",
         scrollTrigger: {
-          trigger: ".premium_grid",
-          start: "top 80%",
-        }
+          trigger: ".amenity-grid",
+          start: "top 85%",
+        },
       });
     }, containerRef);
-
     return () => ctx.revert();
   }, []);
 
   return (
     <section 
-      id="amenities"
       ref={containerRef}
       style={{ 
-        padding: "120px 0", 
-        backgroundColor: "#FCFBFA", 
-        fontFamily: "'Inter', sans-serif",
-        overflow: "hidden" 
+        padding: "160px 0", 
+        backgroundColor: "#0F0F0F", 
+        fontFamily: "'Cormorant Garamond', serif" 
       }}
     >
-      <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "0 40px" }}>
+      <div style={{ maxWidth: "1600px", margin: "0 auto", padding: "0 60px" }}>
         
-        {/* Elegant Minimal Header */}
-        <div style={{ textAlign: "center", marginBottom: "100px" }}>
-          <h2 className="premium_title" style={{ 
-            fontSize: "clamp(2rem, 5vw, 2.75rem)", 
-            fontWeight: "300", 
-            color: "#1A1A1A",
-            letterSpacing: "0.1em",
-            textTransform: "uppercase"
+        <header style={{ textAlign: "center", marginBottom: "120px" }}>
+          <span style={{ 
+            color: "#C5A059", 
+            letterSpacing: "0.3em", 
+            textTransform: "uppercase", 
+            fontSize: "0.8rem",
+            display: "block",
+            marginBottom: "20px"
           }}>
-            A New <span style={{ fontWeight: "600" }}>Riverfront</span> Experience
+            Curated Excellence
+          </span>
+          <h2 style={{ 
+            fontSize: "clamp(2.5rem, 6vw, 4rem)", 
+            color: "#FFFFFF", 
+            fontWeight: "300",
+            margin: "0"
+          }}>
+            Lifestyle <span style={{ fontStyle: "italic", color: "#C5A059" }}>Amenities</span>
           </h2>
-          <div style={{ 
-            width: "50px", 
-            height: "1px", 
-            backgroundColor: "#9E816C", 
-            margin: "2px auto" 
-          }} />
-        </div>
+        </header>
 
-        {/* The Grid */}
-        <div className="premium_grid" style={{ 
-          display: "grid", 
-          gridTemplateColumns: "repeat(6, 1fr)", 
-          gap: "20px",
-          "@media (max-width: 1024px)": { gridTemplateColumns: "repeat(3, 1fr)" },
-          "@media (max-width: 640px)": { gridTemplateColumns: "repeat(1, 1fr)" }
-        } as any}>
-          
+        <div className="amenity-grid">
           {amenities.map((item, idx) => (
-            <div 
-              key={idx} 
-              className="premium_item"
-              style={{ 
-                textAlign: "center",
-                padding: "20px",
-                transition: "transform 0.4s ease"
-              }}
-            >
-              {/* Icon Container with subtle scale hover */}
-              <div style={{ 
-                marginBottom: "30px", 
-                display: "inline-block",
-                transition: "transform 0.3s ease",
-              }}>
-                {item.icon}
+            <div key={idx} className="amenity-card">
+              <div className="icon-wrapper">
+                <svg width="40" height="40" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.2">
+                  {item.icon}
+                </svg>
               </div>
-
-              <h3 style={{ 
-                fontSize: "1rem", 
-                fontWeight: "600", 
-                color: "#1A1A1A", 
-                textTransform: "uppercase",
-                letterSpacing: "0.05em",
-                marginBottom: "15px",
-                minHeight: "3em",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center"
-              }}>
-                {item.name}
-              </h3>
-
-              <p style={{ 
-                fontSize: "0.85rem", 
-                color: "#6B6B6B", 
-                lineHeight: "1.7",
-                fontWeight: "400",
-                margin: "0 auto",
-                maxWidth: "180px"
-              }}>
-                {item.description}
-              </p>
+              <h3 className="amenity-name">{item.name}</h3>
+              <div className="hover-line" />
             </div>
           ))}
         </div>
       </div>
 
       <style jsx>{`
-        .premium_item:hover {
-          transform: translateY(-10px);
+        .amenity-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          border-top: 1px solid rgba(197, 160, 89, 0.2);
+          border-left: 1px solid rgba(197, 160, 89, 0.2);
         }
-        @media (max-width: 1024px) {
-          .premium_grid { grid-template-columns: repeat(3, 1fr) !important; row-gap: 60px !important; }
+
+        .amenity-card {
+          position: relative;
+          padding: 60px 40px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          border-right: 1px solid rgba(197, 160, 89, 0.2);
+          border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+          transition: background-color 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+          overflow: hidden;
         }
-        @media (max-width: 640px) {
-          .premium_grid { grid-template-columns: repeat(1, 1fr) !important; }
+
+        .icon-wrapper {
+          color: #C5A059;
+          margin-bottom: 30px;
+          transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        .amenity-name {
+          color: #FFFFFF;
+          font-family: 'Inter', sans-serif;
+          font-size: 0.9rem;
+          font-weight: 400;
+          text-transform: uppercase;
+          letter-spacing: 0.15em;
+          margin: 0;
+          height: 3rem;
+          display: flex;
+          align-items: center;
+        }
+
+        .hover-line {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          background: #C5A059;
+          transform: scaleX(0);
+          transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        .amenity-card:hover {
+          background-color: rgba(197, 160, 89, 0.05);
+        }
+
+        .amenity-card:hover .icon-wrapper {
+          transform: translateY(-10px) scale(1.1);
+        }
+
+        .amenity-card:hover .hover-line {
+          transform: scaleX(1);
+        }
+
+        @media (max-width: 1200px) {
+          .amenity-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 768px) {
+          .amenity-grid { grid-template-columns: repeat(2, 1fr); }
+          .amenity-card { padding: 40px 20px; }
+        }
+        @media (max-width: 480px) {
+          .amenity-grid { grid-template-columns: 1fr; }
         }
       `}</style>
     </section>

@@ -95,8 +95,8 @@ export default function Footer() {
           <div className="damac_footer_image_col" ref={imageColRef}>
             <div className="damac_footer_image_wrapper">
               <Image
-                src="/images/eagle-hills-belgrade/eagleHillsGallery9.webp"
-                alt="Modern Interior"
+                src="/images/riga/rigaFooter.jpg"
+                alt="Riga Footer"
                 width={1200}
                 height={700}
                 className="damac_footer_image"

@@ -16,13 +16,13 @@ interface GalleryImage {
 }
 
 const galleryImages: GalleryImage[] = [
-  { src: "/images/eagle-hills-belgrade/EagleHillsGallery1.webp", alt: "Eagle Hills Belgrade WaterFront" },
-   { src: "/images/eagle-hills-belgrade/eagleHillsBanners.webp", alt: "Eagle Hills Belgrade WaterFront" },
-  { src: "/images/eagle-hills-belgrade/EagleHillsGallery2.webp", alt: "Eagle Hills Belgrade WaterFront" },
-  { src: "/images/eagle-hills-belgrade/EagleHillsGallery3.webp", alt: "Eagle Hills Belgrade WaterFront" },
-  { src: "/images/eagle-hills-belgrade/eagleHillsGallery6.webp", alt: "Eagle Hills Belgrade WaterFront" },
-  { src: "/images/eagle-hills-belgrade/eagleHillsGallery7.webp", alt: "Eagle Hills Belgrade WaterFront" },
-  { src: "/images/eagle-hills-belgrade/eagleHillsGallery10.webp", alt: "Eagle Hills Belgrade WaterFront" },
+  { src: "/images/riga/rigaGallery1.jpg", alt: "Eagle Hills Riga WaterFront" },
+  { src: "/images/riga/rigaGallery2.jpg", alt: "Eagle Hills Riga WaterFront" },
+  { src: "/images/riga/rigaGallery3.jpg", alt: "Eagle Hills Riga WaterFront" },
+  { src: "/images/riga/rigaGallery4.jpg", alt: "Eagle Hills Riga WaterFront" },
+  { src: "/images/riga/rigaGallery5.jpg", alt: "Eagle Hills Riga WaterFront" },
+  { src: "/images/riga/rigaGallery6.jpg", alt: "Eagle Hills Riga WaterFront" },
+  { src: "/images/riga/rigaGallery7.jpg", alt: "Eagle Hills Riga WaterFront" },
 ];
 
 export default function GallerySlider() {
@@ -118,8 +118,8 @@ export default function GallerySlider() {
       <section id="gallery" className="damac_gallery_section" ref={galleryRef}>
         <div className="container">
           <div className="damac_gallery_header" ref={headerRef}>
-            <h2 className="damac_gallery_heading">EXPLORE OUR COLLECTION</h2>
-            <p className="damac_gallery_tagline">Explore the essence of Belgrade Water Front inspired livingthrough stunning visuals</p>
+            <h2 className="damac_gallery_heading">GALLERY</h2>
+            <p className="damac_gallery_tagline">Explore the essence of Riga Water Front inspired livingthrough stunning visuals</p>
           </div>
 
           <div className="damac_gallery_slider_wrapper" ref={sliderRef}>

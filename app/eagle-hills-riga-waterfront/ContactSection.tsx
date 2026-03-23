@@ -45,7 +45,7 @@ export default function ContactSection() {
           email: formData.email,
           phone: `${phoneCode}${formData.telephone}`,
           unitType: formData.interestedUnitType,
-          message: `Eagle Hills Belgrade Water Front`,
+          message: `Enquiry: Eagle Hills Riga Water Front`,
           consent: consentChecked,
         }),
       });
@@ -66,9 +66,9 @@ export default function ContactSection() {
     <section id="contact" className="damac_contact_section" ref={sectionRef}>
       <div className="container">
         <div className="damac_contact_header">
-          <h2 className="damac_contact_heading">Interested in Belgrade Water Front Marina?</h2>
+          <h2 className="damac_contact_heading">Interested in Riga Water Front?</h2>
           <p className="damac_contact_description">
-           Get exclusive details, pricing, floor plans, and availability.
+           Get exclusive Details, Pricing, Floor Plans, and Availability.
           </p>
           <div className="damac_contact_checklist_wrapper">
             <div className="damac_contact_checklist_item">

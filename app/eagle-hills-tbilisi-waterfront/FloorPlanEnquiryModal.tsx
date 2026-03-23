@@ -29,6 +29,11 @@ export default function FloorPlanEnquiryModal({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+  const whatsappNumber = "971527543245";
+  const whatsappMessage = encodeURIComponent(
+    "Hello, I am interested in Eagle Hills Tbilisi Waterfront Project. Please provide more information regarding the project and available units."
+  );
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
   useEffect(() => {
     if (isOpen) {
@@ -104,8 +109,7 @@ export default function FloorPlanEnquiryModal({
             <h2 className="main_heading">Request <span className="gold_italic">Details</span></h2>
             
             <a
-              href="https://wa.me/971505786682?text=Hello%2C%20I%20would%20like%20to%20understand%20the%20growth%20potential%20of%20Mercedes-Benz%20Palace%2C%20Bhighatti%20City.%20Thank%20you"
-              target="_blank"
+              href={whatsappUrl}
               rel="noopener noreferrer"
               className="whatsapp_link"
             >

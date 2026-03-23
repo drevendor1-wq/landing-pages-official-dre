@@ -29,6 +29,11 @@ export default function FloorPlanEnquiryModal({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+  const whatsappNumber = "971527543245";
+  const whatsappMessage = encodeURIComponent(
+    "Hello, I am interested in DAMAC TOWER NINE ELMS Project. Please provide more information regarding the project and available units."
+  );
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
   // Auto-detect country every time modal opens
   useEffect(() => {
@@ -153,7 +158,7 @@ export default function FloorPlanEnquiryModal({
             <p className="damac_floor_plan_enquiry_subtitle">{buttonText}</p>
             <div className="damac_floor_plan_enquiry_header_buttons">
               <a
-                href="https://wa.me/971505786682?text=Hello%2C%20I%20would%20like%20to%20understand%20the%20growth%20potential%20of%20Mercedes-Benz%20Palace%2C%20Bhighatti%20City.%20Thank%20you"
+                href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="damac_floor_plan_enquiry_header_btn damac_floor_plan_enquiry_header_btn_whatsapp"

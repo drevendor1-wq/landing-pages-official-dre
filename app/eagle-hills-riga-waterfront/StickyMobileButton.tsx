@@ -58,7 +58,7 @@ export default function StickyMobileButton() {
       <FloorPlanEnquiryModal
         isOpen={enquiryModalOpen}
         onClose={closeEnquiryModal}
-        floorPlanTitle="Eagle Hills Belgrade Water Front"
+        floorPlanTitle="Eagle Hills Riga Water Front"
         buttonText="Get in Touch"
       />
     </>

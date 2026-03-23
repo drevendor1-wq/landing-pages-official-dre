@@ -84,24 +84,6 @@ export default function BannerHeader() {
               priority
             />
           </div>
-          
-          <div className="damac_banner_header_right">
-            <button 
-              onClick={openEnquiryModal}
-              className="damac_banner_header_button"
-            >
-              GET FREE CONSULTATION
-            </button>
-            <button 
-              className="damac_banner_header_hamburger"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label="Toggle menu"
-            >
-              <span className={isMenuOpen ? "open" : ""}></span>
-              <span className={isMenuOpen ? "open" : ""}></span>
-              <span className={isMenuOpen ? "open" : ""}></span>
-            </button>
-          </div>
         </div>
       </header>
 
