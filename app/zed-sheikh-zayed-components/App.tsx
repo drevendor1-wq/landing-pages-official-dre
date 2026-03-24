@@ -27,7 +27,7 @@ export default function App() {
       
       {/* <FloorPlan />
        {/*<PaymentPlan /> */}
-      <Gallery />
+      {/* <Gallery /> */}
        
       {/* <FAQ /> */}
       <Contact />
