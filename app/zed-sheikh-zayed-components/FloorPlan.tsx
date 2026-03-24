@@ -164,7 +164,7 @@ const FloorPlan = () => {
       <ContactModal
               isOpen={enquiryModalOpen}
               onClose={closeEnquiryModal}
-              floorPlanTitle="Enquiry For: Palm Central Nakheel"
+              floorPlanTitle={"Enquiry For: Zed Sheikh Zayed | Ora Developers"}
               buttonText={buttonText}
             />
     </section>

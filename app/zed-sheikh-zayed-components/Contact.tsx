@@ -46,7 +46,7 @@ export default function ContactFloating() {
           email: formData.email,
           phone: `${phoneCode}${formData.telephone}`,
           unitType: formData.interestedUnitType,
-          message: `Enquiry For: Tierra Viva Marbella | DarGlobal`,
+          message: `Enquiry For: Zed Sheikh Zayed | Ora Developers`,
           consent: consentChecked
         })
       });

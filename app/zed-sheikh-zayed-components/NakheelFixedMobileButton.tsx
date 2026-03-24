@@ -47,7 +47,7 @@ const NakheelFixedMobileButton = () => {
         ...data,
         phone: `${phoneCode}${data.phone}`,
         consent: isChecked,
-        message: "Enquiry for Bay Villas by Nakheel",
+        message: "Enquiry For: Zed Sheikh Zayed | Ora Developers",
       };
 
       const response = await fetch("/api/submit-enquiry", {
@@ -76,9 +76,9 @@ const NakheelFixedMobileButton = () => {
       <div className="fixed bottom-0 left-0 right-0 z-10 md:hidden p-1 bg-[#D4AF37] backdrop-blur-lg border-t border-emerald-100 shadow-[0_-10px_40px_rgba(0,0,0,0.05)]">
         <button
           onClick={togglePopup}
-          className="w-full text-white py-4 rounded-lg font-bold text-xs uppercase tracking-[0.2em] shadow-xl active:scale-[0.96] transition-all"
+          className="w-full text-white py-4 rounded-lg font-bold text-xs uppercase tracking-[0.1em] shadow-xl active:scale-[0.96] transition-all"
         >
-          Explore Pricing & Availability
+          INTERESTED? LET'S CONNECT
         </button>
       </div>
 
