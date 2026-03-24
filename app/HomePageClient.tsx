@@ -1108,7 +1108,7 @@ function HomePageContent() {
               {/* Property Image with Price Overlay */}
               <div className="property-image-wrapper">
                 <Image
-                  src="/images/nakheel-palm-central/darGlobalCover.jpg"
+                  src="/images/nakheel-palm-central/zedSheikhCover.jpg"
                   alt="TIERRA VIVA MARBELLA"
                   width={800}
                   height={500}

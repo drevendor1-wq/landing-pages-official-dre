@@ -155,7 +155,7 @@ const Navbar = () => {
       <ContactModal
         isOpen={enquiryModalOpen}
         onClose={closeEnquiryModal}
-        floorPlanTitle="Enquiry For: Zed Sheikh Zayed | Ora Developers"
+        floorPlanTitle="Zed Sheikh Zayed | Ora Developers"
         buttonText={buttonText}
       />
 

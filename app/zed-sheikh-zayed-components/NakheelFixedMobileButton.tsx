@@ -121,7 +121,7 @@ const NakheelFixedMobileButton = () => {
                     Exclusive Access
                   </span>
                   <h2 className="text-3xl font-serif text-black tracking-tighter leading-none">
-                    Explore Pricing & Availability<br /><span className="text-[#D4AF37] font-light text-[19px]">Zed Sheikh Zayed By Ora Developers</span>
+                    Explore Pricing & Availability<br /><span className="text-[#D4AF37] font-light text-[19px]">Zed Sheikh Zayed By ORA Developers</span>
                   </h2>
                 </div>
 

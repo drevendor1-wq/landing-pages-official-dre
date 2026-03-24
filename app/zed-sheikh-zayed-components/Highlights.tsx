@@ -138,7 +138,7 @@ const Properties: React.FC = () => {
       <ContactModal
         isOpen={enquiryModalOpen}
         onClose={() => setEnquiryModalOpen(false)}
-        floorPlanTitle="Enquiry For: Zed Sheikh Zayed | Ora Developers"
+        floorPlanTitle="Zed Sheikh Zayed | Ora Developers"
         buttonText="Request Property Information"
       />
 

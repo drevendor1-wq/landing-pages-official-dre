@@ -140,7 +140,7 @@ const About = () => {
   <div className="absolute left-8 top-1/2 -translate-y-1/2 hidden lg:flex flex-col gap-8">
     <div className="w-[1px] h-32 bg-gradient-to-b from-transparent via-[#d4af37] to-transparent" />
   </div>
-   <ContactModal isOpen={enquiryModalOpen} onClose={() => setEnquiryModalOpen(false)} floorPlanTitle="Enquiry For: Zed Sheikh Zayed | Ora Developers" buttonText={buttonText} />
+   <ContactModal isOpen={enquiryModalOpen} onClose={() => setEnquiryModalOpen(false)} floorPlanTitle="Zed Sheikh Zayed | Ora Developers" buttonText={buttonText} />
 </section>
 
   );
