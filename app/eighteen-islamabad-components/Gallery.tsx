@@ -195,16 +195,14 @@ import { useState } from "react";
 
 const Gallery = () => {
  const images = [
-    "https://www.watg.com/wp-content/uploads/2020/06/Zed-Gate-night-scaled.jpg",
-    "https://www.watg.com/wp-content/uploads/2020/06/ZED-gardens-scaled.jpg",
-    "https://static.wixstatic.com/media/e32222_aad2a2abdb724bc88e8eae14def077b5~mv2_d_1989_1407_s_2.jpg/v1/crop/x_0,y_323,w_1989,h_1084/fill/w_1960,h_1064,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/Page-10-Image-18.jpg",
-    "https://static.wixstatic.com/media/e32222_7cd6663d192841c787c6cfc943ba6aa0~mv2.jpg/v1/fill/w_1447,h_887,al_c,q_85,enc_avif,quality_auto/Page-23-Image-66.jpg",
-    "https://static.wixstatic.com/media/e32222_35c92f60f5954f34b4e92534fb10d67e~mv2.jpg/v1/fill/w_1457,h_791,al_c,q_85,enc_avif,quality_auto/Page-22-Image-64.jpg",
-    "https://static.wixstatic.com/media/e32222_ac2e9ee8403f41e2b7161fd1292a3f2b~mv2.jpg/v1/fill/w_1178,h_750,al_c,q_85,enc_avif,quality_auto/Page-5-Image-8.jpg",
-    "https://static.wixstatic.com/media/e32222_43a61a20e7da4731949bb9ff26f6197a~mv2.jpg/v1/fill/w_1486,h_916,al_c,q_85,enc_avif,quality_auto/Page-11-Image-20.jpg",
-    "https://static.wixstatic.com/media/e32222_4abbe897e30248a4a33ff631ca50c749~mv2_d_2312_1504_s_2.jpg/v1/fill/w_1960,h_1278,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/Page-34-Image-98.jpg",
-    "https://static.wixstatic.com/media/e32222_bcdbb706523640ffb469d15539b3f398~mv2.jpg/v1/fill/w_1494,h_921,al_c,q_85,enc_avif,quality_auto/Page-24-Image-68.jpg",
-    "https://static.wixstatic.com/media/e32222_ce897252c40c48b19c680efb1320709c~mv2.jpg/v1/fill/w_1192,h_754,al_c,q_85,enc_avif,quality_auto/Page-27-Image-77.jpg",
+    "https://gondalgroupofmarketing.com/wp-content/uploads/2025/10/Gondal-Group-of-Marketing-Project-Eighteen-Islamabad-03.webp",
+    "https://gondalgroupofmarketing.com/wp-content/uploads/2025/10/Gondal-Group-of-Marketing-Project-Eighteen-Islamabad-04.webp",
+    "https://gondalgroupofmarketing.com/wp-content/uploads/2025/10/Gondal-Group-of-Marketing-Project-Eighteen-Islamabad-05.webp",
+    "https://gondalgroupofmarketing.com/wp-content/uploads/2025/10/Gondal-Group-of-Marketing-Project-Eighteen-Islamabad-06.webp",
+    "https://gondalgroupofmarketing.com/wp-content/uploads/2025/10/Gondal-Group-of-Marketing-Project-Eighteen-Islamabad-07.webp",
+    "https://gondalgroupofmarketing.com/wp-content/uploads/2025/10/Gondal-Group-of-Marketing-Project-Eighteen-Islamabad-08.webp",
+    "https://gondalgroupofmarketing.com/wp-content/uploads/2025/10/Gondal-Group-of-Marketing-Project-Eighteen-Islamabad-10.webp",
+    "https://gondalgroupofmarketing.com/wp-content/uploads/2025/10/Gondal-Group-of-Marketing-Project-Eighteen-Islamabad-11.webp",
   ];
   const [active, setActive] = useState(0);
 
