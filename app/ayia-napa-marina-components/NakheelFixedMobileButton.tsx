@@ -58,7 +58,7 @@ const NakheelFixedMobileButton: React.FC = () => {
         ...data,
         phone: `${phoneCode ?? ""}${data.phone}`,
         consent: isChecked,
-        message: "Enquiry For: Eighteen Islamabad | ORA Developers",
+        message: "Enquiry For: Ayia Napa Marina | ORA Developers",
       };
 
       const response = await fetch("/api/submit-enquiry", {
