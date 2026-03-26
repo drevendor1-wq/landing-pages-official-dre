@@ -37,48 +37,92 @@ export default function FloorPlanEnquiryModal({
 
   useEffect(() => {
     if (isOpen) {
-      setEnquiryData({ name: "", email: "", phone: "" });
+      // Reset form data when modal opens
+      setEnquiryData({
+        name: "",
+        email: "",
+        phone: "",
+      });
+      
+      // Detect country
+      const detectCountry = async () => {
+        const code = await detectCountryCode();
+        setPhoneCode(code);
+      };
+      detectCountry();
+    }
+  }, [isOpen]);
 
-      detectCountryCode().then(setPhoneCode);
-
+   useEffect(() => {
+    if (isOpen && modalRef.current && contentRef.current) {
       document.body.style.overflow = "hidden";
+      
+      const ctx = gsap.context(() => {
+        gsap.from(modalRef.current, {
+          opacity: 0,
+          duration: 0.3,
+          ease: "power2.out",
+        });
 
-      gsap.fromTo(
-        modalRef.current,
-        { opacity: 0 },
-        { opacity: 1, duration: 0.4 }
-      );
+        gsap.from(contentRef.current, {
+          scale: 0.9,
+          y: 50,
+          opacity: 0,
+          duration: 0.5,
+          ease: "power3.out",
+          delay: 0.1,
+        });
+      }, modalRef.current);
 
-      gsap.fromTo(
-        contentRef.current,
-        { y: 60, scale: 0.95, opacity: 0 },
-        { y: 0, scale: 1, opacity: 1, duration: 0.7, ease: "expo.out" }
-      );
+      return () => ctx.revert();
     } else {
       document.body.style.overflow = "unset";
     }
   }, [isOpen]);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && isOpen) {
+        onClose();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen, onClose]);
+
+  const handlePhoneChange = (value: string) => {
+    const digitsOnly = value.replace(/\D/g, "");
+    setEnquiryData({ ...enquiryData, phone: digitsOnly });
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     try {
-      const res = await fetch("/api/submit-enquiry", {
+      const response = await fetch("/api/submit-enquiry", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify({
           name: enquiryData.name,
           email: enquiryData.email,
           phone: `${phoneCode}${enquiryData.phone}`,
-          message: floorPlanTitle,
+          message: `Enquiry for: Aldar London`,
+          consent: isChecked,
         }),
       });
 
-      if (res.ok) window.location.href = "/thank-you";
-      else alert("Error submitting form");
-    } catch {
-      alert("Error submitting form");
+      if (response.ok) {
+        window.location.href = "/thank-you";
+      } else {
+        alert("Error submitting enquiry. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Error submitting enquiry. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
