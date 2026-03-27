@@ -83,7 +83,7 @@ export default function BelgradeWaterfrontBanner() {
       <FloorPlanEnquiryModal
         isOpen={enquiryModalOpen}
         onClose={() => { setEnquiryModalOpen(false); document.body.style.overflow = "unset"; }}
-        floorPlanTitle="Enquiry: Eagle Hills Riga Waterfront"
+        floorPlanTitle="Eagle Hills Riga Waterfront"
         buttonText={buttonText}
       />
 

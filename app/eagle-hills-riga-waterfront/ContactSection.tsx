@@ -45,7 +45,7 @@ export default function ContactSection() {
           email: formData.email,
           phone: `${phoneCode}${formData.telephone}`,
           unitType: formData.interestedUnitType,
-          message: `Enquiry: Eagle Hills Riga Water Front`,
+          message: `Enquiry for: Eagle Hills Riga Water Front`,
           consent: consentChecked,
         }),
       });

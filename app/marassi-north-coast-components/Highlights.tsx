@@ -55,12 +55,12 @@ const Properties: React.FC = () => {
     },
     {
       title: "Apartments & Duplexes",
-      image: "https://cdn-ilejccm.nitrocdn.com/PsNDsZusNRsFVvmxCCWStyMIXqjeEsbK/assets/images/optimized/rev-3e977cb/www.emaarmisr.com/wp-content/uploads/2025/10/Emaar-Misr-Communities-Marassi-North-Coast-1-1024x683.jpg",
+      image: "https://www.emaarmisr.com/wp-content/uploads/2025/10/Emaar-Misr-Marassi-Marina-Front-Residences-3.jpg",
       tag: "Marassi Bay"
     },
     {
       title: "Apartments & Duplexes",
-      image: "https://cdn-ilejccm.nitrocdn.com/PsNDsZusNRsFVvmxCCWStyMIXqjeEsbK/assets/images/optimized/rev-3e977cb/www.emaarmisr.com/wp-content/uploads/2025/10/Emaar-Misr-Communities-Marassi-North-Coast-3-1024x682.jpg",
+      image: "https://www.propertyfinder.eg/blog/wp-content/uploads/2019/05/Porto-Marina-North-Coast-800x600.jpg",
       tag: "Marina West"
     },
     {
@@ -183,7 +183,7 @@ const Properties: React.FC = () => {
       <ContactModal
         isOpen={enquiryModalOpen}
         onClose={() => setEnquiryModalOpen(false)}
-        floorPlanTitle={buttonText}
+        floorPlanTitle="Emaar Marassi North Coast"
         buttonText="Request Information"
       />
     </section>

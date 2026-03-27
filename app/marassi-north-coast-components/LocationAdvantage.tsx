@@ -49,7 +49,7 @@ const LocationAdvantage = () => {
           >
             {/* Map Image - Improved Visibility */}
             <img 
-              src="https://cdn-ilejccm.nitrocdn.com/PsNDsZusNRsFVvmxCCWStyMIXqjeEsbK/assets/images/optimized/rev-3e977cb/www.emaarmisr.com/wp-content/uploads/2026/01/Emaar-Misr-Communities-2026-V2-Location-Map-Marassi-North-Coast.jpg" 
+              src="https://www.emaarmisr.com/wp-content/uploads/2026/01/Emaar-Misr-Communities-2026-V2-Location-Map-Marassi-North-Coast.jpg" 
               alt="Marassi Location" 
               className="w-full h-full object-cover transition-all duration-[1.5s] group-hover:scale-105 saturate-[0.7] brightness-100 group-hover:saturate-100"
             />

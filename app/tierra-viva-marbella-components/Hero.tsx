@@ -58,7 +58,7 @@ const Hero = () => {
         </div>
       </section>
 
-      <ContactModal isOpen={enquiryModalOpen} onClose={() => setEnquiryModalOpen(false)} floorPlanTitle="Enquiry For: Tierra Viva Marbella | DarGlobal" buttonText={buttonText} />
+      <ContactModal isOpen={enquiryModalOpen} onClose={() => setEnquiryModalOpen(false)} floorPlanTitle="Tierra Viva Marbella | DarGlobal" buttonText={buttonText} />
     </>
   );
 };

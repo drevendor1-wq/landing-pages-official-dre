@@ -256,7 +256,7 @@ export default function HighlightsSection() {
       <FloorPlanEnquiryModal
         isOpen={enquiryModalOpen}
         onClose={() => setEnquiryModalOpen(false)}
-        floorPlanTitle="Enquiry: DAMAC TOWER NINE ELMS LONDON"
+        floorPlanTitle="DAMAC TOWER NINE ELMS LONDON"
         buttonText="Callback from Damac Expert"
       />
     </>

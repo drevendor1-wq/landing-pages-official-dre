@@ -38,7 +38,7 @@ const Hero = () => {
               className="text-white font-serif"
             >
               <span className="block text-2xl md:text-4xl text-white/40 tracking-widest uppercase">Emaar</span>
-              <span className="block text-4xl md:text-[12rem] font-bold leading-none -ml-1 md:-ml-2">CAIRO GATE</span>
+              <span className="block text-2xl md:text-[12rem] font-bold leading-none -ml-1 md:-ml-2">MARASSI NORTH COAST</span>
             </motion.h1>
           </div>
 
@@ -58,7 +58,7 @@ const Hero = () => {
         </div>
       </section>
 
-      <ContactModal isOpen={enquiryModalOpen} onClose={() => setEnquiryModalOpen(false)} floorPlanTitle="Enquiry For: EMAAR CAIRO GATE EGYPT" buttonText={buttonText} />
+      <ContactModal isOpen={enquiryModalOpen} onClose={() => setEnquiryModalOpen(false)} floorPlanTitle="EMAAR MARASSI NORTH COAST" buttonText={buttonText} />
     </>
   );
 };

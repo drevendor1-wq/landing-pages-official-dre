@@ -11,7 +11,7 @@ const Navbar = () => {
   const [buttonText, setButtonText] = useState("");
   const whatsappNumber = "971527543245";
   const whatsappMessage = encodeURIComponent(
-    "Hello, I am interested in DarGlobal Tierra Viva Marbella Project. Please provide more information regarding the project and available units."
+    "Hello, I am interested in DarGlobal's Tierra Viva Marbella Project in Spain. Please provide more information regarding the project and available units."
   );
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
   
@@ -60,10 +60,10 @@ const Navbar = () => {
   className="cursor-pointer"
 >
   <Image
-    src="/images/DRE_BLACK_LOGO.png"
+    src="/images/dre-logo/dre_black.png"
     alt="Bay Villas Logo"
-    width={40}
-    height={20}
+    width={110}
+    height={110}
     priority
     className="object-contain"
   />
@@ -135,7 +135,7 @@ const Navbar = () => {
     <ContactModal
             isOpen={enquiryModalOpen}
             onClose={closeEnquiryModal}
-            floorPlanTitle="Enquiry For: Tierra Viva Marbella | DarGlobal"
+            floorPlanTitle="Tierra Viva Marbella | DarGlobal"
             buttonText={buttonText}
           />
           <a

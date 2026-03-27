@@ -61,10 +61,10 @@ const Navbar = () => {
           {/* LOGO */}
           <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
             <Image
-              src="/images/DRE_BLACK_LOGO.png"
+              src="/images/dre-logo/dre_black.png"
               alt="Logo"
-              width={32}
-              height={32}
+              width={110}
+              height={110}
               className="invert"
             />
           </button>

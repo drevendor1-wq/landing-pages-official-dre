@@ -78,7 +78,7 @@ export default function AtelierContact() {
           name: formData.fullName,
           email: formData.email,
           phone: `${phoneCode}${formData.telephone}`,
-          message: `Eagle Hills Tbilisi Waterfront`,
+          message: `Enquiry For: Eagle Hills Tbilisi Waterfront`,
           consent: consentChecked,
         }),
       });

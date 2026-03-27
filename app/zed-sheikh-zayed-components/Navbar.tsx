@@ -15,7 +15,7 @@ const Navbar = () => {
   // Luxury Transitions: Elements transform smoothly as you scroll
   const navPadding = useTransform(scrollY, [0, 100], ["24px", "12px"]);
   const navBg = useTransform(scrollY, [0, 100], ["rgba(255, 255, 255, 0)", "rgba(10, 10, 10, 0.98)"]);
-  const logoBrightness = useTransform(scrollY, [0, 100], ["brightness(1)", "brightness(1) invert(1)"]);
+  const logoBrightness = useTransform(scrollY, [0, 100], ["brightness(1)", "brightness(1)"]);
   const linkColor = useTransform(scrollY, [0, 100], ["#ffffff", "#ffffff"]);
   const shadow = useTransform(scrollY, [0, 100], ["0px 0px 0px rgba(0,0,0,0)", "0px 10px 40px rgba(0,0,0,0.3)"]);
 
@@ -60,10 +60,10 @@ const Navbar = () => {
             className="relative z-[10]"
           >
             <Image
-              src="/images/DRE_BLACK_LOGO.png"
+              src="/images/dre-logo/dre_white.png"
               alt="Logo"
-              width={30}
-              height={30}
+              width={110}
+              height={110}
               priority
               className="object-contain"
             />

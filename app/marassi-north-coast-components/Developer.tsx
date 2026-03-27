@@ -65,7 +65,7 @@ const Developer = () => {
             className="absolute bottom-0 left-0 w-3/4 h-[55%] rounded-sm overflow-hidden shadow-2xl z-20 border-8 border-[#F8FAFC]"
           >
             <img 
-              src="https://cdn-ilejccm.nitrocdn.com/PsNDsZusNRsFVvmxCCWStyMIXqjeEsbK/assets/images/optimized/rev-3e977cb/www.emaarmisr.com/wp-content/uploads/2025/10/Emaar-Misr-Communities-Marassi-North-Coast-10-1024x907.jpg" 
+              src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/533556409.jpg?k=22cb91907e0b007c8c464e344a1114a13fd34a37e43d8114ebab6a49a2b54d28&o=" 
               alt="Marassi Lifestyle" 
               className="w-full h-full object-cover"
             />

@@ -239,7 +239,7 @@ export default function PlazaPropertyCards() {
       <FloorPlanEnquiryModal
         isOpen={enquiryModalOpen}
         onClose={closeEnquiryModal}
-        floorPlanTitle={selectedProperty}
+        floorPlanTitle="Eagle Hills Riga Water Front"
         buttonText="REQUEST INFORMATION"
       />
     </>

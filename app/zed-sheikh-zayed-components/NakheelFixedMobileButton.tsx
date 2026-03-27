@@ -47,7 +47,7 @@ const NakheelFixedMobileButton = () => {
         ...data,
         phone: `${phoneCode}${data.phone}`,
         consent: isChecked,
-        message: "Enquiry For: Zed Sheikh Zayed | Ora Developers",
+        message: "Enquiry For: Zed Sheikh Zayed | ORA Developers",
       };
 
       const response = await fetch("/api/submit-enquiry", {

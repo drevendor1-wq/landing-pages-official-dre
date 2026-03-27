@@ -60,10 +60,10 @@ const Navbar = () => {
   className="cursor-pointer"
 >
   <Image
-    src="/images/DRE_BLACK_LOGO.png"
+    src="/images/dre-logo/dre_black.png"
     alt="Bay Villas Logo"
-    width={40}
-    height={20}
+    width={110}
+    height={110}
     priority
     className="object-contain"
   />
@@ -135,7 +135,7 @@ const Navbar = () => {
     <ContactModal
             isOpen={enquiryModalOpen}
             onClose={closeEnquiryModal}
-            floorPlanTitle="Enquiry For: MARASSI NORTH COAST EGYPT"
+            floorPlanTitle="MARASSI NORTH COAST EGYPT"
             buttonText={buttonText}
           />
           <a

@@ -76,7 +76,7 @@ export default function BannerHeader() {
         <div className="damac_banner_header_container">
           <div className="damac_banner_header_logo">
             <Image
-              src="/images/logo.png"
+              src="/images/dre-logo/dre_white.png"
               alt="Logo"
               width={150}
               height={60}

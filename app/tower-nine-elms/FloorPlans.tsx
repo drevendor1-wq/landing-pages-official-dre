@@ -274,7 +274,7 @@ export default function MasterPlan() {
       <FloorPlanEnquiryModal
         isOpen={enquiryModalOpen}
         onClose={() => setEnquiryModalOpen(false)}
-        floorPlanTitle="Enquiry: DAMAC TOWER NINE ELMS LONDON"
+        floorPlanTitle="DAMAC TOWER NINE ELMS LONDON"
         buttonText="Request Floor Plan"
       />
     </>

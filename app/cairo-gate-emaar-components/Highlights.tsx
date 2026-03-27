@@ -183,7 +183,7 @@ const Properties: React.FC = () => {
       <ContactModal
         isOpen={enquiryModalOpen}
         onClose={() => setEnquiryModalOpen(false)}
-        floorPlanTitle={buttonText}
+        floorPlanTitle="Cairo Gate Emaar"
         buttonText="Request Information"
       />
     </section>

@@ -69,10 +69,10 @@ export default function BannerHeader() {
           
          <div className="header_logo">
   <Image
-    src="/images/DRE_BLACK_LOGO.png"
+    src="/images/dre-logo/dre_black.png"
     alt="Logo"
-    width={70}
-    height={70}
+    width={110}
+    height={110}
     className="logo_img"
     priority
   />
@@ -172,7 +172,7 @@ export default function BannerHeader() {
         }
          
         .header_logo {
-  width: 60px;
+  width: 110px;
 }
         .header_hidden {
           transform: translateY(-100%);
@@ -294,7 +294,8 @@ export default function BannerHeader() {
         /* MOBILE FIX */
         @media (max-width: 768px) {
   .header_logo {
-    width: 50px; /* 👈 control size here */
+    width: 60px; 
+    float: left/* 👈 control size here */
   }
 
   .header_logo :global(img) {

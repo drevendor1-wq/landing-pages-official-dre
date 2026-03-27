@@ -47,7 +47,7 @@ const NakheelFixedMobileButton = () => {
         ...data,
         phone: `${phoneCode}${data.phone}`,
         consent: isChecked,
-        message: "Enquiry for Emaar Cairo Gate Egypt",
+        message: "Enquiry for: Emaar Cairo Gate Egypt",
       };
 
       const response = await fetch("/api/submit-enquiry", {

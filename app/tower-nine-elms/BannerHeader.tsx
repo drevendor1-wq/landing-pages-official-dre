@@ -76,7 +76,7 @@ export default function BannerHeader() {
         <div className="damac_banner_header_container">
           <div className="damac_banner_header_logo">
             <Image
-              src="/images/logo.png"
+              src="/images/dre-logo/dre_white.png"
               alt="Logo"
               width={150}
               height={60}
@@ -153,7 +153,7 @@ export default function BannerHeader() {
       <FloorPlanEnquiryModal
         isOpen={enquiryModalOpen}
         onClose={closeEnquiryModal}
-        floorPlanTitle="Enquiry: DAMAC TOWER NINE ELMS LONDON"
+        floorPlanTitle="DAMAC TOWER NINE ELMS LONDON"
         buttonText="GET FREE CONSULTATION"
       />
       <a

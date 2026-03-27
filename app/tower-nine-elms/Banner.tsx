@@ -154,7 +154,7 @@ export default function RoyalNoirBanner() {
           color: #c5a368; 
           letter-spacing: 3px; 
           text-transform: uppercase; 
-          font-size: 11px; 
+          font-size: 17px; 
           margin-top: 15px; 
           font-weight: 600;
         }
@@ -223,6 +223,8 @@ export default function RoyalNoirBanner() {
         }
 
         @media (max-width: 768px) { 
+           .noir_h1 { font-size: 23px; font-weight: 600 }
+           .noir_subheading{ font-size: 13px;}
           .noir_overlay_text { padding: 30px; }
           .noir_actions { flex-direction: column; width: 100%; align-items: stretch; margin-top: 40px; } 
           .gold_pill, .outline_pill { text-align: center; }
@@ -232,7 +234,7 @@ export default function RoyalNoirBanner() {
       <FloorPlanEnquiryModal 
         isOpen={enquiryModalOpen} 
         onClose={() => setEnquiryModalOpen(false)} 
-        floorPlanTitle="Enquiry: DAMAC TOWER NINE ELMS LONDON" 
+        floorPlanTitle="DAMAC TOWER NINE ELMS LONDON" 
         buttonText="GET FREE CONSULTATION" 
       />
     </section>
