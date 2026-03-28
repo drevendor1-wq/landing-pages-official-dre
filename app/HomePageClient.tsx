@@ -1247,7 +1247,7 @@ function HomePageContent() {
               <div className="property-image-wrapper">
                 <Image
                   src="/images/nakheel-palm-central/ayiaNapaMarinaCover.jpg"
-                  alt="TIERRA VIVA MARBELLA"
+                  alt="AYIA NAPA MARINA"
                   width={800}
                   height={500}
                   style={{ width: "100%", height: "350px", objectFit: "cover" }}
@@ -1310,13 +1310,13 @@ function HomePageContent() {
               </div>
             </div>
 
-            {/* ALDAR LONDON */}
+            {/* MIRA GEORGIA RESIDENCES */}
             <div className="property-card">
               {/* Property Image with Price Overlay */}
               <div className="property-image-wrapper">
                 <Image
-                  src="/images/nakheel-palm-central/aldarLondonCover.webp"
-                  alt="ALDAR LONDON"
+                  src="/images/nakheel-palm-central/coverMiraGeorgia.webp"
+                  alt="mira georgia"
                   width={800}
                   height={500}
                   style={{ width: "100%", height: "350px", objectFit: "cover" }}
@@ -1325,7 +1325,7 @@ function HomePageContent() {
 
               {/* SOBHA Property Details */}
               <div className="property-details">
-                <h2 className="property-name">ALDAR LONDON</h2>
+                <h2 className="property-name">MIRA GEORGIA RESIDENCES</h2>
                 
                 {/* Feature Grid */}
                 {/* <div className="property-features">
@@ -1372,7 +1372,7 @@ function HomePageContent() {
                   >
                     Brochure
                   </button>
-                  <Link href="/aldar-london" className="property-action-btn">
+                  <Link href="/mira-georgia-residences" className="property-action-btn">
                     View Details
                   </Link>
                 </div>
