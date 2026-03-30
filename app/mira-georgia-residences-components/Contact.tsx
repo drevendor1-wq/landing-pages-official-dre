@@ -195,8 +195,7 @@ export default function ContactFloating() {
                 htmlFor="consent"
                 className="text-xs text-gray-600"
               >
-                I authorize company representatives to contact me via Call,
-                WhatsApp, SMS, or Email regarding this property enquiry.
+                I hereby authorize company representatives to reach out to me via Call, SMS, Email, or WhatsApp to share details about their products and offers, regardless of my DNC/NDNC registration.
               </label>
             </div>
 

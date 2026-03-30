@@ -318,7 +318,7 @@ export default function ContactModal({
         
         {/* Top/Right Section (Image) */}
         <div
-          className="relative h-[770px] md:h-auto md:order-2 bg-cover bg-center"
+          className="relative h-[250px] md:h-auto md:order-2 bg-cover bg-center"
           style={{ backgroundImage: `url('https://mira-verde.com/assets/gallery22.webp')` }}
         >
           {/* Close Button - positioned absolutely on the image container */}
@@ -340,7 +340,7 @@ export default function ContactModal({
               <span className="text-[8px] font-bold tracking-[0.5em] text-[#047857] uppercase block mb-2">
                 MIRA GEORGIA RESIDENCES
               </span>
-              <h2 className="text-xl md:text-2xl font-serif italic text-zinc-900 leading-tight">
+              <h2 className="text-xl md:text-2xl font-serif text-zinc-900 leading-tight">
                 {buttonText}
               </h2>
               <div className="w-6 h-[1px] bg-emerald-200 mx-auto mt-4" />
@@ -410,8 +410,7 @@ export default function ContactModal({
                   required
                 />
                 <span className="text-[8px] text-zinc-400 uppercase tracking-widest leading-relaxed">
-                  I authorize company representatives to reach out via Call, SMS, Email,
-                  or WhatsApp.
+                  I hereby authorize company representatives to reach out to me via Call, SMS, Email, or WhatsApp to share details about their products and offers, regardless of my DNC/NDNC registration.
                 </span>
               </div>
 

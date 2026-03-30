@@ -101,7 +101,7 @@ const Navbar = () => {
               <button 
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
-                className="relative text-[11px] uppercase tracking-[0.25em] font-medium text-zinc-700 hover:text-black transition-all duration-300 group"
+                className="relative text-[10px] uppercase tracking-[0.25em] font-medium text-zinc-700 hover:text-black transition-all duration-300 group"
               >
                 {item}
 
@@ -115,7 +115,7 @@ const Navbar = () => {
             {/* Premium CTA */}
             <div className="bg-emerald-700 rounded-full shadow-[0_8px_20px_rgba(0,0,0,0.15)] hover:shadow-[0_12px_30px_rgba(0,0,0,0.25)] transition-all duration-500">
   <button 
-    onClick={() => openEnquiryModal("Request Brochure")}
+    onClick={() => openEnquiryModal("REQUEST BROCHURE")}
     className="px-7 py-3 text-xs uppercase tracking-[0.35em] font-semibold text-white w-full h-full rounded-full"
   >
     REQUEST BROCHURE
@@ -163,7 +163,7 @@ const Navbar = () => {
                 
                 <div className="bg-emerald-700 rounded-full shadow-[0_8px_20px_rgba(0,0,0,0.15)] hover:shadow-[0_12px_30px_rgba(0,0,0,0.25)] transition-all duration-500">
   <button 
-    onClick={() => openEnquiryModal("Request Brochure")}
+    onClick={() => openEnquiryModal("REQUEST BROCHURE")}
     className="px-7 py-3 text-xs uppercase tracking-[0.35em] font-semibold text-white w-full h-full rounded-full"
   >
     REQUEST BROCHURE

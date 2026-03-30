@@ -102,7 +102,7 @@ const Hero = () => {
 
               {/* Primary Button */}
               <button 
-  onClick={() => openEnquiryModal("Download Brochure")}
+  onClick={() => openEnquiryModal("DOWNLOAD BROCHURE")}
   className="group relative flex items-center gap-3 px-10 py-4 bg-white border border-zinc-200 text-black transition-all duration-500 ease-in-out overflow-hidden"
 >
   {/* The Sunset/Green background slide effect */}
@@ -125,7 +125,7 @@ const Hero = () => {
   <motion.button
     whileHover={{ scale: 1.02 }}
     whileTap={{ scale: 0.98 }}
-    onClick={() => openEnquiryModal("Request Call Back")}
+    onClick={() => openEnquiryModal("REQUEST CALL BACK")}
     className="flex items-center gap-3 text-white px-8 py-4 rounded-full"
   >
     <Phone size={18} />

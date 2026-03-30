@@ -62,7 +62,7 @@ const MiraVerdeShowcase = () => {
               </button>
               <div className='bg-[#047857]'>
               <button 
-                onClick={() => openEnquiryModal("REGISTER NOW")}
+                onClick={() => openEnquiryModal("REGISTER YOUR INTEREST")}
                 className="w-full py-4 text-white text-[11px] font-bold uppercase tracking-[0.2em] hover:bg-[#035e44] transition-all duration-300 shadow-lg shadow-emerald-900/10"
               >
                 Register Your Interest
