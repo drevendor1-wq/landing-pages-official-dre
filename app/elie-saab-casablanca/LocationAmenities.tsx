@@ -68,7 +68,7 @@ export default function LocationAmenities() {
               priority
             />
           </div>
-          <div className="cinematic_overlay"></div>
+         
         </div>
 
         {/* Content Floating Layer */}
@@ -119,12 +119,7 @@ export default function LocationAmenities() {
       </div>
 
       <style jsx>{`
-        .cinematic_loc_section {
-          position: relative;
-          background: #000; /* Contrast background for luxury */
-          overflow: hidden;
-          min-height: 100vh;
-        }
+       
 
         .cinematic_grid {
           display: flex;
@@ -187,13 +182,6 @@ export default function LocationAmenities() {
           color: #b89562;
         }
 
-        .cinematic_body p {
-          font-size: 17px;
-          line-height: 1.7;
-          color: #1a1a1a;
-          margin-bottom: 25px;
-        }
-
         .cinematic_body .dim_text {
           font-size: 15px;
           color: #666;
@@ -244,7 +232,7 @@ export default function LocationAmenities() {
         }
 
         .tile_name {
-          font-size: 12px;
+          font-size: 11px;
           font-weight: 700;
           text-transform: uppercase;
           letter-spacing: 1px;

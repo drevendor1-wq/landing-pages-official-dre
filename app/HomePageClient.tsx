@@ -1524,7 +1524,7 @@ function HomePageContent() {
             </div>
             
             {/* Morocco Projects */}
-            {/* <div className="property-card">
+            <div className="property-card">
               <div className="property-image-wrapper">
                 <Image
                   src="/images/nakheel-palm-central/moroccoCover.webp"
@@ -1536,7 +1536,7 @@ function HomePageContent() {
               </div>
 
               <div className="property-details">
-                <h2 className="property-name">MIRA GEORGIA RESIDENCES</h2>
+                <h2 className="property-name">ELIE SAAB CASABLANCA, MOROCCO</h2>
                 
   
                 <div className="property-actions">
@@ -1546,12 +1546,12 @@ function HomePageContent() {
                   >
                     Brochure
                   </button>
-                  <Link href="/morocco-by-evolutions" className="property-action-btn">
+                  <Link href="/elie-saab-casablanca" className="property-action-btn">
                     View Details
                   </Link>
                 </div>
               </div>
-            </div> */}
+            </div>
 
           </div>
         </div>

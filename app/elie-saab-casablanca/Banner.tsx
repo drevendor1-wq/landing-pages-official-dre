@@ -314,22 +314,101 @@ export default function BelgradeWaterfrontBanner() {
         }
 
         @media (max-width: 1024px) {
-          .hero-grid { grid-template-columns: 1fr; gap: 60px; }
-          .container { padding: 60px 40px; }
-          .img-wrapper { height: 500px; }
-          .content-side { order: 2; text-align: center; display: flex; flex-direction: column; align-items: center;}
-          .image-side { order: 1; max-width: 80%; margin: 0 auto;}
-          .eyebrow-wrapper { justify-content: center; }
-          .description { max-width: 100%; }
-        }
+    .container { 
+      padding: 100px 24px 60px; /* Space for BannerHeader */
+      display: block; /* Simpler flow for mobile */
+    }
 
-        @media (max-width: 768px) {
-          .main-title { font-size: 48px; }
-          .button-group { flex-direction: column; gap: 10px; width: 100%; }
-          .btn-primary { width: 100%; justify-content: center; }
-          .img-wrapper { height: 400px; }
-          .deco-1, .deco-2 { display: none; } /* Simplify on mobile */
-        }
+    .hero-grid { 
+      display: flex;
+      flex-direction: column;
+      gap: 40px; 
+    }
+
+    .image-side { 
+      order: 1; 
+      width: 100%;
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 0; /* Remove extra padding to maximize image size */
+    }
+
+    .img-wrapper { 
+      position: relative;
+      height: 55vh; /* Responsive height based on viewport */
+      min-height: 400px;
+      width: 100%;
+      border-radius: 4px;
+      overflow: hidden; /* Prevent frames from causing horizontal scroll */
+    }
+
+    .content-side { 
+      order: 2; 
+      text-align: center; 
+      display: flex; 
+      flex-direction: column; 
+      align-items: center;
+    }
+
+    .main-title { 
+      font-size: clamp(38px, 8vw, 56px); /* Fluid typography */
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .description { 
+      font-size: 17px;
+      margin-bottom: 40px;
+      padding: 0 10px;
+    }
+
+    .button-group { 
+      width: 100%;
+      flex-direction: column; 
+      gap: 15px; 
+    }
+
+    .btn-primary, .btn-secondary { 
+      width: 100%; 
+      justify-content: center;
+      padding: 18px 0;
+    }
+
+    .btn-secondary::after {
+      left: 25%;
+      width: 50%; /* Centered underline for mobile */
+    }
+      .eyebrow-wrapper { 
+    justify-content: center; 
+    white-space: nowrap; /* Prevents text from breaking into two lines */
+    width: 100%;
+    gap: 10px; /* Reduced gap from 15px */
+  }
+
+  .eyebrow { 
+    font-size: 11px; /* Slightly smaller to fit width */
+    letter-spacing: 3px; /* Reduced from 5px to save space on mobile */
+  }
+
+  .accent-line {
+    width: 30px; /* Shorter line on mobile */
+    flex-shrink: 0; /* Ensures the line doesn't disappear */
+  }
+  }
+
+  @media (max-width: 768px) {
+    .img-wrapper { 
+      height: 45vh; 
+      min-height: 320px;
+    }
+    
+    .main-title {
+      letter-spacing: -0.5px;
+    }
+
+    /* Hide decorative frames on small mobile to prevent layout shifts */
+    .deco-1, .deco-2 { display: none; }
+  }
       `}</style>
     </section>
   );
