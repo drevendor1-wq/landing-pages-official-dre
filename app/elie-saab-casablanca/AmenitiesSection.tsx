@@ -34,14 +34,17 @@ const amenities: Amenity[] = [
     )
   },
   {
-    name: "Lush gardens",
-    description: "Meticulously landscaped botanical escapes",
-    icon: (
-      <svg viewBox="0 0 100 100">
-        <path d="M50 80 V50 M50 50 L70 30 M50 55 L30 35 M50 70 L65 55 M50 75 L35 60" />
-      </svg>
-    )
-  },
+  name: "Lush gardens",
+  description: "Meticulously landscaped botanical escapes",
+  icon: (
+    <svg viewBox="0 0 100 100" fill="none" stroke="currentColor">
+      {/* Central trunk */}
+      <path d="M50 85 V45" strokeLinecap="round" />
+      {/* Detailed leaf structure */}
+      <path d="M50 45 L75 25 M50 55 L25 35 M50 65 L70 50 M50 75 L30 60" strokeLinecap="round" />
+    </svg>
+  )
+},
   {
     name: "Yoga Area",
     description: "Dedicated zen spaces for mindful meditation",
