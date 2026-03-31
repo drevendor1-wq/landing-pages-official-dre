@@ -45,10 +45,10 @@ const PaymentPlan = () => {
         </div>
 
         {/* Timeline Grid */}
-        <div className="grid md:grid-cols-3 gap-12 relative">
+        <div className="flex flex-col md:flex-row justify-center gap-12 relative">
           
           {/* Animated Connecting Line (Desktop) */}
-          <div className="hidden md:block absolute top-[45%] left-0 w-full h-[2px] bg-sky-100 -z-0">
+          <div className="hidden md:block absolute top-[45%] left-0  h-[2px] bg-sky-100 -z-0">
             <motion.div 
               initial={{ width: 0 }}
               whileInView={{ width: "100%" }}
@@ -87,7 +87,7 @@ const PaymentPlan = () => {
                 </p>
               </div>
 
-              {i < 2 && (
+              {i < 1 && (
                 <div className="hidden lg:flex absolute -right-6 top-[40%] -translate-y-1/2 w-12 h-12 bg-white rounded-full items-center justify-center shadow-lg z-20 group-hover:scale-125 transition-transform duration-500 border border-sky-50">
                    <ArrowRight className="text-green-500" size={18} />
                 </div>
@@ -121,9 +121,8 @@ const PaymentPlan = () => {
 };
 
 const stepData = [
-  { percent: "5%", label: "Down Payment", desc: "Secure your luxury beachfront Townhouse at Palm Central with only a 5% down payment." },
-  { percent: "15%", label: "During Construction", desc: "Enjoy flexible installments during the construction period for a stress-free investment journey." },
-  { percent: "80%", label: "On Handover", desc: "Complete your investment with a comfortable 80% final payment upon handover completion." },
+  { percent: "40%", label: "During Construction", desc: "Enjoy flexible installments during the construction period for a stress-free investment journey." },
+  { percent: "60%", label: "On Handover", desc: "Complete your investment with a comfortable 60% final payment upon handover completion." },
 ];
 
 export default PaymentPlan;
