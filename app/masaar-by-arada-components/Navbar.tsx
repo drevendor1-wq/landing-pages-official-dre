@@ -12,7 +12,7 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const whatsappNumber = "971527543245";
   const whatsappMessage = encodeURIComponent(
-    "Hello, I am interested in Mira Georgia Residences. Please provide more information regarding the project and available units."
+    "Hello, I am interested in Masaar By Arada Properties in Sharjah. Please provide more information regarding the project and available units."
   );
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
@@ -180,7 +180,7 @@ const Navbar = () => {
       <ContactModal
         isOpen={enquiryModalOpen}
         onClose={closeEnquiryModal}
-        floorPlanTitle="Mira Georgia Residences"
+        floorPlanTitle="Masaar By Arada at Sharjah"
         buttonText={buttonText}
       />
       <a

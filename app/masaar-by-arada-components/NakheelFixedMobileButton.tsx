@@ -47,7 +47,7 @@ const NakheelFixedMobileButton = () => {
         ...data,
         phone: `${phoneCode}${data.phone}`,
         consent: isChecked,
-        message: "Enquiry for: Mira Georgia Residences",
+        message: "Enquiry for: Masaar By Arada at Sharjah",
       };
 
       const response = await fetch("/api/submit-enquiry", {
@@ -121,7 +121,7 @@ const NakheelFixedMobileButton = () => {
                     Exclusive Access
                   </span>
                   <h2 className="text-2xl font-serif text-black tracking-tighter leading-none">
-                    Request Pricing and Availability<br /><span className="text-[#047857] font-light text-[19px]">Mira Georgia Residences</span>
+                    Request Pricing and Availability<br /><span className="text-[#047857] font-light text-[19px]">Masaar By Arada</span>
                   </h2>
                 </div>
 
