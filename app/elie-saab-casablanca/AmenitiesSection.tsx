@@ -137,7 +137,7 @@ export default function PremiumAmenities() {
       <div className="lux_container">
         <div className="lux_header">
           <span>DISTINCTIVE LIVING</span>
-          <h2>THE <i>Art</i> OF LIVING WELL</h2>
+          <h2>THE <i className="text-[#b89562]">Art</i> OF LIVING WELL</h2>
         </div>
 
         <div className="lux_amenity_grid">
