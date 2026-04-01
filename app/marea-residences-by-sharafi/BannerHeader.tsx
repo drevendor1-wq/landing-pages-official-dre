@@ -119,7 +119,7 @@ export default function BannerHeader() {
       <FloorPlanEnquiryModal
         isOpen={enquiryModalOpen}
         onClose={() => { setEnquiryModalOpen(false); document.body.style.overflow = "unset"; }}
-        floorPlanTitle="Marea Residences"
+        floorPlanTitle="Marea Residences | Dubai Islands"
         buttonText="REQUEST FREE CONSULTATION"
       />
 

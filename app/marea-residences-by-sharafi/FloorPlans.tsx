@@ -128,7 +128,7 @@ export default function FloorPlanSection() {
       <FloorPlanEnquiryModal
         isOpen={enquiryModalOpen}
         onClose={() => setEnquiryModalOpen(false)}
-        floorPlanTitle={selectedPlan}
+        floorPlanTitle="Marea Residences | Dubai Islands"
         buttonText="REQUEST FLOOR PLANS"
       />
 

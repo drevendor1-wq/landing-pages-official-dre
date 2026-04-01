@@ -57,7 +57,7 @@ export default function NewPaymentPlanLayout() {
       <FloorPlanEnquiryModal
         isOpen={enquiryModalOpen}
         onClose={() => setEnquiryModalOpen(false)}
-        floorPlanTitle="Marea Residences Schedule"
+        floorPlanTitle="Marea Residences | Dubai Islands"
         buttonText="REQUEST PAYMENT PLAN"
       />
 

@@ -105,7 +105,7 @@ export default function BelgradeWaterfrontBanner() {
       <FloorPlanEnquiryModal
         isOpen={enquiryModalOpen}
         onClose={() => { setEnquiryModalOpen(false); document.body.style.overflow = "unset"; }}
-        floorPlanTitle="Marea Residences by Sharafi"
+        floorPlanTitle="Marea Residences | Dubai Islands"
         buttonText={buttonText}
       />
 

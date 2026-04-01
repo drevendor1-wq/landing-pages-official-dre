@@ -170,7 +170,7 @@ export default function FloorPlanEnquiryModal({
   </label>
 </div>
             <button type="submit" className="zenith-btn-submit" disabled={isSubmitting}>
-              {isSubmitting ? "PROCESSING..." : "SUBMIT ENQUIRY"}
+              {isSubmitting ? "SUBMITTING." : "SUBMIT ENQUIRY"}
             </button>
             
             <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="zenith-wa-minimal">

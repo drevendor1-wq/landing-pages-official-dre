@@ -68,7 +68,7 @@ export default function ContactSection() {
           name: formData.fullName,
           email: formData.email,
           phone: `${phoneCode}${formData.telephone}`,
-          message: `Enquiry For: Marea Residences`,
+          message: `Enquiry For: Marea Residences | Dubai Islands`,
           consent: consentChecked,
         }),
       });
