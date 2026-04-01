@@ -834,7 +834,7 @@ function HomePageContent() {
             </div> 
 
             {/* damac tower nine elms */}
-            <div className="property-card">
+            {/* <div className="property-card">
               
               <div className="property-image-wrapper">
                 <Image
@@ -850,44 +850,6 @@ function HomePageContent() {
               <div className="property-details">
                 <h2 className="property-name">DAMAC TOWER NINE ELMS</h2>
                 
-              
-                {/* <div className="property-features">
-                  <div className="feature-item">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-                      <polyline points="9 22 9 12 15 12 15 22"/>
-                    </svg>
-                    <span>3-6BR</span>
-                  </div>
-                  <div className="feature-item">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4"/>
-                    </svg>
-                    <span>Townhouses & Villas</span>
-                  </div>
-                  <div className="feature-item">
-                    <span style={{ fontSize: "16px", fontWeight: "600" }}>د.إ</span>
-                    <span>AED 3.5M</span>
-                  </div>
-                  <div className="feature-item">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                      <line x1="16" y1="2" x2="16" y2="6"/>
-                      <line x1="8" y1="2" x2="8" y2="6"/>
-                      <line x1="3" y1="10" x2="21" y2="10"/>
-                    </svg>
-                    <span>70/30</span>
-                  </div>
-                  <div className="feature-item">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                      <circle cx="12" cy="10" r="3"/>
-                    </svg>
-                    <span>Academic City, Dubai</span>
-                  </div>
-                </div>
-
-                 */}
                 <div className="property-actions">
                   <button 
                     className="property-action-btn"
@@ -900,7 +862,7 @@ function HomePageContent() {
                   </Link>
                 </div>
               </div>
-            </div> 
+            </div>  */}
 
             {/* eagle hills tbilisi water front */}
             <div className="property-card">
@@ -1547,6 +1509,77 @@ function HomePageContent() {
                     Brochure
                   </button>
                   <Link href="/elie-saab-casablanca" className="property-action-btn">
+                    View Details
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            <div className="property-card">
+              
+              <div className="property-image-wrapper">
+                <Image
+                  src="/images/marea-residences/T1.jpg"
+                  alt="Palm Central at Dubai"
+                  width={800}
+                  height={500}
+                  style={{ width: "100%", height: "350px", objectFit: "cover" }}
+                />
+                <div className="property-price-overlay">
+                  <div className="price-text">
+                    AED 2.6M
+                  </div>
+                </div>
+              </div>
+
+              {/* MAREA RESIDENCES BY SHARAFI */}
+              <div className="property-details">
+                <h2 className="property-name">MAREA RESIDENCES</h2>
+              
+                <div className="property-features">
+                  <div className="feature-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                      <polyline points="9 22 9 12 15 12 15 22"/>
+                    </svg>
+                    <span>1-3BR</span>
+                  </div>
+                  <div className="feature-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4"/>
+                    </svg>
+                    <span>Apartments & Penthouses</span>
+                  </div>
+                  <div className="feature-item">
+                    <span style={{ fontSize: "16px", fontWeight: "600" }}>د.إ</span>
+                    <span>AED 2.6M</span>
+                  </div>
+                  <div className="feature-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                      <line x1="16" y1="2" x2="16" y2="6"/>
+                      <line x1="8" y1="2" x2="8" y2="6"/>
+                      <line x1="3" y1="10" x2="21" y2="10"/>
+                    </svg>
+                    <span>40/30/30</span>
+                  </div>
+                  <div className="feature-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                      <circle cx="12" cy="10" r="3"/>
+                    </svg>
+                    <span>Dubai Islands, Deira District</span>
+                  </div>
+                </div>
+
+                <div className="property-actions">
+                  <button 
+                    className="property-action-btn"
+                    onClick={() => openFormModal("brochure")}
+                  >
+                    Brochure
+                  </button>
+                  <Link href="/marea-residences-by-sharafi" className="property-action-btn">
                     View Details
                   </Link>
                 </div>
