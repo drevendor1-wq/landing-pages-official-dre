@@ -85,9 +85,9 @@ const Navbar = () => {
             className="cursor-pointer group flex items-center"
           >
             <Image
-              src="/images/DRE_BLACK_LOGO.png"
+              src="/images/dre-logo/dre_black.png"
               alt="DRE LOGO"
-              width={35}
+              width={110}
               height={35}
               priority
               className="object-contain transition-all duration-300 group-hover:scale-105"

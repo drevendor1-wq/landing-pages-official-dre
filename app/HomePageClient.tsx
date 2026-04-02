@@ -834,7 +834,7 @@ function HomePageContent() {
             </div> 
 
             {/* damac tower nine elms */}
-            {/* <div className="property-card">
+            <div className="property-card">
               
               <div className="property-image-wrapper">
                 <Image
@@ -862,7 +862,7 @@ function HomePageContent() {
                   </Link>
                 </div>
               </div>
-            </div>  */}
+            </div> 
 
             {/* eagle hills tbilisi water front */}
             <div className="property-card">
